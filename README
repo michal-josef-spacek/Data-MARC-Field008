@@ -1,0 +1,122 @@
+NAME
+    Data::MARC::Field008 - Data object for MARC leader.
+
+SYNOPSIS
+     use Data::MARC::Field008;
+
+     my $obj = Data::MARC::Field008->new(%params);
+     my $date_entered_on_file = $obj->date_entered_on_file;
+     my $date1 = $obj->date1;
+     my $date2 = $obj->date2;
+     my $place_of_publication = $obj->place_of_publication;
+     my $type_of_date = $obj->type_of_date;
+     # TODO
+
+METHODS
+  "new"
+     my $obj = Data::MARC::Field008->new(%params);
+
+    Constructor.
+
+    *       "bibliographic_level"
+
+            Bibliographic level flag.
+
+            Default values is undef.
+
+            TODO
+
+    Returns instance of object.
+
+  "bibliographic_level"
+     my $bibliographic_level = $obj->bibliographic_level;
+
+    Get bibliographic level flag.
+
+    Returns character.
+
+    TODO
+
+ERRORS
+     new():
+             Parameter 'bibliographic_level' must be one of defined strings.
+                     String: %s
+                     Possible strings: a b c d i m s
+             Parameter 'char_coding_scheme' must be one of defined strings.
+                     String: %s
+                     Possible strings: ' ' a
+             Parameter 'descriptive_cataloging_form' must be one of defined strings.
+                     String: %s
+                     Possible strings: ' ' a c i n u
+             Parameter 'encoding_level' must be one of defined strings.
+                     String: %s
+                     Possible strings: ' ' 1 2 3 4 5 7 8 u z
+             Parameter 'impl_def_portion_len' must be one of defined strings.
+                     String: %s
+                     Possible strings: 0
+             Parameter 'indicator_count' must be one of defined strings.
+                     String: %s
+                     Possible strings: 2
+             Parameter 'length_of_field_portion_len' must be one of defined strings.
+                     String: %s
+                     Possible strings: 4
+             Parameter 'multipart_resource_record_level' must be one of defined strings.
+                     String: %s
+                     Possible strings: ' ' a b c
+             Parameter 'raw' has length different than '24'.
+                     Value: %s
+             Parameter 'starting_char_pos_portion_len' must be one of defined strings.
+                     String: %s
+                     Possible strings: 5
+             Parameter 'status' must be one of defined strings.
+                     String: %s
+                     Possible strings: a c d n p
+             Parameter 'subfield_code_count' must be one of defined strings.
+                     String: %s
+                     Possible strings: 2
+             Parameter 'type' must be one of defined strings.
+                     String: %s
+                     Possible strings: a c d e f g i j k m o p r t
+             Parameter 'type_of_control' must be one of defined strings.
+                     String: %s
+                     Possible strings: ' ' a
+             Parameter 'undefined' must be one of defined strings.
+                     String: %s
+                     Possible strings: 0
+
+EXAMPLE
+     use strict;
+     use warnings;
+
+     use Data::Printer;
+     use Data::MARC::Field008;
+
+     my $obj = Data::MARC::Field008->new(
+             'bibliographic_level' => 'm',
+     );
+
+     # Print out.
+     p $obj;
+
+     # Output:
+     # TODO
+
+DEPENDENCIES
+    Mo, Mo::utils, Readonly.
+
+REPOSITORY
+    <https://github.com/michal-josef-spacek/Data-MARC-Field008>
+
+AUTHOR
+    Michal Josef Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
+
+LICENSE AND COPYRIGHT
+    © 2025 Michal Josef Špaček
+
+    BSD 2-Clause License
+
+VERSION
+    0.01
+
