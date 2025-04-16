@@ -7,6 +7,7 @@ Field008/ContinuingResource.pm
 Field008/Map.pm
 Field008/MixedMaterial.pm
 Field008/Music.pm
+Field008/Utils.pm
 Field008/VisualMaterial.pm
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
@@ -36,6 +37,9 @@ t/Data-MARC-Field008-MixedMaterial/01-use.t
 t/Data-MARC-Field008-MixedMaterial/02-version.t
 t/Data-MARC-Field008-Music/01-use.t
 t/Data-MARC-Field008-Music/02-version.t
+t/Data-MARC-Field008-Utils/01-use.t
+t/Data-MARC-Field008-Utils/02-version.t
+t/Data-MARC-Field008-Utils/03-check_type_of_date.t
 t/Data-MARC-Field008-VisualMaterial/01-use.t
 t/Data-MARC-Field008-VisualMaterial/02-version.t
 t/Data-MARC-Field008/01-use.t
@@ -53,6 +57,8 @@ xt/Data-MARC-Field008-MixedMaterial/01-pod_coverage.t
 xt/Data-MARC-Field008-MixedMaterial/02-pod.t
 xt/Data-MARC-Field008-Music/01-pod_coverage.t
 xt/Data-MARC-Field008-Music/02-pod.t
+xt/Data-MARC-Field008-Utils/01-pod_coverage.t
+xt/Data-MARC-Field008-Utils/02-pod.t
 xt/Data-MARC-Field008-VisualMaterial/01-pod_coverage.t
 xt/Data-MARC-Field008-VisualMaterial/02-pod.t
 xt/Data-MARC-Field008/01-pod_coverage.t
