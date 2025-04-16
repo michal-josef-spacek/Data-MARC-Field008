@@ -68,11 +68,11 @@ sub BUILD {
 
 	# Check 'date1'.
 	check_length_fix($self, 'date1', 4);
-	check_regexp($self, 'date1', qr{^([\ u\d]+|\|{4})$});
+	check_regexp($self, 'date1', '^([\ u\d]+|\|{4})$');
 
 	# Check 'date2'.
 	check_length_fix($self, 'date2', 4);
-	check_regexp($self, 'date2', qr{^([\ u\d]+|\|{4})$});
+	check_regexp($self, 'date2', '^([\ u\d]+|\|{4})$');
 
 	# Check 'material'.
 	# TODO
