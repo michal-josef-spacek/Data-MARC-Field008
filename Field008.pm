@@ -3,13 +3,13 @@ package Data::MARC::Field008;
 use strict;
 use warnings;
 
+use Data::MARC::Field008::Utils qw(check_type_of_date);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_number check_regexp check_strings);
 use Readonly;
 
 Readonly::Array our @MATERIAL_TYPES => qw(book computer_file continuing_resource
 	map music visual_material mixed_material);
-Readonly::Array our @TYPE_OF_DATE => qw(b c d e i k m n p q r s t u |);
 
 our $VERSION = 0.01;
 
@@ -87,7 +87,7 @@ sub BUILD {
 	check_length_fix($self, 'raw', 40);
 
 	# Check 'type_of_date'.
-	check_strings($self, 'type_of_date', \@TYPE_OF_DATE);
+	check_type_of_date($self, 'type_of_date');
 
 	return;
 }
