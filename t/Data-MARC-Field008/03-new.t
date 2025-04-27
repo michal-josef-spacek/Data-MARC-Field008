@@ -8,7 +8,9 @@ use Test::More 'tests' => 6;
 use Test::NoWarnings;
 
 # Test.
-my $obj = Data::MARC::Field008->new;
+my $obj = Data::MARC::Field008->new(
+	'type_of_date' => 's',
+);
 isa_ok($obj, 'Data::MARC::Field008');
 
 # Test.
