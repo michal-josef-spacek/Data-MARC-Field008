@@ -8,10 +8,34 @@ use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Readonly;
 
-Readonly::Array our @EXPORT_OK => qw(check_type_of_date);
+Readonly::Array our @EXPORT_OK => qw(check_date check_type_of_date);
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
 
 our $VERSION = 0.01;
+
+sub check_date {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if ($self->{$key} !~ m/^[\ \|\du]{4}$/ms) {
+		err "Parameter '$key' has bad value.";
+	}
+	if ($self->{$key} ne '    ' && $self->{$key} =~ m/\ /ms) {
+		err "Parameter '$key' has value with space character.";
+	}
+	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
+		err "Parameter '$key' has value with pipe character.";
+	}
+
+	return;
+}
 
 sub check_type_of_date {
 	my ($self, $key) = @_;

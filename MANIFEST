@@ -40,7 +40,8 @@ t/Data-MARC-Field008-Music/01-use.t
 t/Data-MARC-Field008-Music/02-version.t
 t/Data-MARC-Field008-Utils/01-use.t
 t/Data-MARC-Field008-Utils/02-version.t
-t/Data-MARC-Field008-Utils/03-check_type_of_date.t
+t/Data-MARC-Field008-Utils/03-check_date.t
+t/Data-MARC-Field008-Utils/04-check_type_of_date.t
 t/Data-MARC-Field008-VisualMaterial/01-use.t
 t/Data-MARC-Field008-VisualMaterial/02-version.t
 t/Data-MARC-Field008/01-use.t
