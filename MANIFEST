@@ -35,6 +35,7 @@ t/Data-MARC-Field008-Map/01-use.t
 t/Data-MARC-Field008-Map/02-version.t
 t/Data-MARC-Field008-MixedMaterial/01-use.t
 t/Data-MARC-Field008-MixedMaterial/02-version.t
+t/Data-MARC-Field008-MixedMaterial/03-new.t
 t/Data-MARC-Field008-Music/01-use.t
 t/Data-MARC-Field008-Music/02-version.t
 t/Data-MARC-Field008-Utils/01-use.t
