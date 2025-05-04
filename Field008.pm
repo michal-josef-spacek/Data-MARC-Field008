@@ -3,7 +3,7 @@ package Data::MARC::Field008;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_type_of_date);
+use Data::MARC::Field008::Utils qw(check_date check_type_of_date);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_number check_regexp check_strings);
 use Readonly;
@@ -67,12 +67,10 @@ sub BUILD {
 	}
 
 	# Check 'date1'.
-	check_length_fix($self, 'date1', 4);
-	check_regexp($self, 'date1', '^([\ u\d]+|\|{4})$');
+	check_date($self, 'date1');
 
 	# Check 'date2'.
-	check_length_fix($self, 'date2', 4);
-	check_regexp($self, 'date2', '^([\ u\d]+|\|{4})$');
+	check_date($self, 'date2');
 
 	# Check 'material'.
 	# TODO
