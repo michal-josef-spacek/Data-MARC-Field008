@@ -24,6 +24,12 @@ sub check_date {
 			'Reference', (ref, $self->{$key}),
 		;
 	}
+	if (length $self->{$key} != 4) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
 	if ($self->{$key} !~ m/^[\ \|\du]{4}$/ms) {
 		err "Parameter '$key' has bad value.";
 	}
