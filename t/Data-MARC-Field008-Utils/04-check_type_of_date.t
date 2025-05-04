@@ -4,7 +4,7 @@ use warnings;
 use English;
 use Error::Pure::Utils qw(clean);
 use Data::MARC::Field008::Utils qw(check_type_of_date);
-use Test::More 'tests' => 6;
+use Test::More 'tests' => 7;
 use Test::NoWarnings;
 
 # Test.
@@ -43,6 +43,17 @@ eval {
 };
 is($EVAL_ERROR, "Parameter 'key' length is bad.\n",
 	"Parameter 'key' length is bad (foo).");
+clean();
+
+# Test.
+$self = {
+	'key' => 'w',
+};
+eval {
+	check_type_of_date($self, 'key');
+};
+is($EVAL_ERROR, "Parameter 'key' has bad value.\n",
+	"Parameter 'key' has bad value (w).");
 clean();
 
 # Test.
