@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build is);
-use Mo::utils 0.22 qw(check_length_fix check_required);
+use Mo::utils 0.22 qw(check_length_fix check_required check_strings);
 
 our $VERSION = 0.01;
 
@@ -60,7 +60,7 @@ sub BUILD {
 	check_length_fix($self, 'raw', 16);
 
 	# Check 'relief'.
-	# TODO
+	check_relief($self, 'relief');
 
 	# Check 'special_format_characteristics'.
 	# TODO
