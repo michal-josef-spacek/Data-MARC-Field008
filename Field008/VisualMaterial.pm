@@ -46,7 +46,6 @@ sub BUILD {
 	# TODO
 
 	# Check 'raw'
-	check_required($self, 'raw');
 	check_length_fix($self, 'raw', 16);
 
 	# Check 'running_time_for_motion_pictures_and_videorecordings'.

@@ -27,7 +27,6 @@ sub BUILD {
 	check_strings($self, 'form_of_item', \@FORM_OF_ITEM);
 
 	# Check 'raw'
-	check_required($self, 'raw');
 	check_length_fix($self, 'raw', 16);
 
 	return;

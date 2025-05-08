@@ -57,7 +57,6 @@ sub BUILD {
 	# TODO
 
 	# Check 'raw'
-	check_required($self, 'raw');
 	check_length_fix($self, 'raw', 16);
 
 	# Check 'relief'.
