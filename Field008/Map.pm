@@ -5,7 +5,7 @@ use warnings;
 
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required check_strings);
-use Data::MARC::Field008::Utils qw(check_relief);
+use Data::MARC::Field008::Utils qw(check_map_projection check_relief);
 
 our $VERSION = 0.01;
 
@@ -54,7 +54,7 @@ sub BUILD {
 	# TODO
 
 	# Check 'projection'.
-	# TODO
+	check_map_projection($self, 'projection');
 
 	# Check 'raw'
 	check_length_fix($self, 'raw', 16);
