@@ -8,8 +8,14 @@ use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Readonly;
 
-Readonly::Array our @EXPORT_OK => qw(check_date check_relief check_type_of_date);
+Readonly::Array our @EXPORT_OK => qw(check_date check_map_projection check_relief
+	check_type_of_date);
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
+Readonly::Array our @MAP_PROJECTIONS => ('  ', 'aa', 'ab', 'ac', 'ad', 'ae',
+	'af', 'ag', 'am', 'an', 'ap', 'au', 'az', 'ba', 'bb', 'bc', 'bd', 'be',
+	'bf', 'bg', 'bh', 'bi', 'bj', 'bk', 'bl', 'bo', 'br', 'bs', 'bu', 'bz',
+	'ca', 'cb', 'cc', 'ce', 'cp', 'cu', 'cz', 'da', 'db', 'dc', 'dd', 'de',
+	'df', 'dg', 'dh', 'dl', 'zz', '||');
 
 our $VERSION = 0.01;
 
@@ -38,6 +44,32 @@ sub check_date {
 	}
 	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
 		err "Parameter '$key' has value with pipe character.";
+	}
+
+	return;
+}
+
+sub check_map_projection {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 2) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if (none { $self->{$key} eq $_ } @MAP_PROJECTIONS) {
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
 	}
 
 	return;
