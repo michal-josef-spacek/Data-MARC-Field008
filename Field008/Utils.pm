@@ -8,7 +8,7 @@ use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Readonly;
 
-Readonly::Array our @EXPORT_OK => qw(check_date check_map_projection check_relief
+Readonly::Array our @EXPORT_OK => qw(check_date check_map_projection check_map_relief
 	check_type_of_date);
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
 Readonly::Array our @MAP_PROJECTIONS => ('  ', 'aa', 'ab', 'ac', 'ad', 'ae',
@@ -75,7 +75,7 @@ sub check_map_projection {
 	return;
 }
 
-sub check_relief {
+sub check_map_relief {
 	my ($self, $key) = @_;
 
 	if (! exists $self->{$key} || ! defined $self->{$key}) {
