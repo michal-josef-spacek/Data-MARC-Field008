@@ -5,4 +5,6 @@ use Test::NoWarnings;
 use Test::Pod::Coverage 'tests' => 2;
 
 # Test.
-pod_coverage_ok('Data::MARC::Field008::ContinuingResource', 'Data::MARC::Field008::ContinuingResource is covered.');
+pod_coverage_ok('Data::MARC::Field008::ContinuingResource',
+	{ 'also_private' => ['BUILD'] },
+	'Data::MARC::Field008::ContinuingResource is covered.');

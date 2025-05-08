@@ -5,4 +5,6 @@ use Test::NoWarnings;
 use Test::Pod::Coverage 'tests' => 2;
 
 # Test.
-pod_coverage_ok('Data::MARC::Field008::MixedMaterial', 'Data::MARC::Field008::MixedMaterial is covered.');
+pod_coverage_ok('Data::MARC::Field008::MixedMaterial',
+	{ 'also_private' => ['BUILD'] },
+	'Data::MARC::Field008::MixedMaterial is covered.');
