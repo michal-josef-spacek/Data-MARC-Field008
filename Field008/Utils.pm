@@ -8,11 +8,11 @@ use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Readonly;
 
-Readonly::Array our @EXPORT_OK => qw(check_conference_publication check_date
-	check_government_publication check_index
-	check_map_cartographic_material_type check_map_item_form check_map_projection
-	check_map_relief check_map_special_format check_target_audience
-	check_type_of_date);
+Readonly::Array our @EXPORT_OK => qw(check_book_illustration
+	check_conference_publication check_date check_government_publication
+	check_index check_map_cartographic_material_type check_map_item_form
+	check_map_projection check_map_relief check_map_special_format
+	check_target_audience check_type_of_date);
 Readonly::Array our @CONFERENCE_PUBLICATIONS => qw(0 1 |);
 Readonly::Array our @GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
 	'l', 'm', 'o', 's', 'u', 'z', '|');
@@ -30,6 +30,37 @@ Readonly::Array our @TARGET_AUDIENCES => (' ', 'a', 'b', 'c', 'd', 'e', 'f',
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
 
 our $VERSION = 0.01;
+
+sub check_book_illustration {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 4) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} !~ m/^[\ abcdefghijklmop\|]{4}$/ms) {
+		err "Parameter '$key' contain bad book illustration character.",
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
+		err "Parameter '$key' has value with pipe character.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
 
 sub check_conference_publication {
 	my ($self, $key) = @_;
