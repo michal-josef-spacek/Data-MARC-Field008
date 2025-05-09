@@ -11,7 +11,7 @@ use Readonly;
 Readonly::Array our @EXPORT_OK => qw(check_date check_index
 	check_map_cartographic_material_type check_map_government_publication
 	check_map_item_form check_map_projection check_map_relief
-	check_type_of_date);
+	check_map_special_format check_type_of_date);
 Readonly::Array our @INDEXES => qw(0 1 |);
 Readonly::Array our @MAP_CARTOGRAPHIC_MATERIAL_TYPES => qw(a b c d e f g u z |);
 Readonly::Array our @MAP_GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
@@ -216,6 +216,37 @@ sub check_map_relief {
 		;
 	}
 	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
+		err "Parameter '$key' has value with pipe character.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
+sub check_map_special_format {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 2) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} !~ m/^[\ ejklnoprz\|]{2}$/ms) {
+		err "Parameter '$key' contain bad special format characteristics character.",
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} ne '||' && $self->{$key} =~ m/\|/ms) {
 		err "Parameter '$key' has value with pipe character.",
 			'Value', $self->{$key},
 		;
