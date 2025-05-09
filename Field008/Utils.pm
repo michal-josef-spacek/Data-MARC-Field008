@@ -37,13 +37,19 @@ sub check_date {
 		;
 	}
 	if ($self->{$key} !~ m/^[\ \|\du]{4}$/ms) {
-		err "Parameter '$key' has bad value.";
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
 	}
 	if ($self->{$key} ne '    ' && $self->{$key} =~ m/\ /ms) {
-		err "Parameter '$key' has value with space character.";
+		err "Parameter '$key' has value with space character.",
+			'Value', $self->{$key},
+		;
 	}
 	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
-		err "Parameter '$key' has value with pipe character.";
+		err "Parameter '$key' has value with pipe character.",
+			'Value', $self->{$key},
+		;
 	}
 
 	return;
@@ -93,10 +99,14 @@ sub check_map_relief {
 		;
 	}
 	if ($self->{$key} !~ m/^[\ abcdefgijkmz\|]{4}$/ms) {
-		err "Parameter '$key' contain bad relief character.";
+		err "Parameter '$key' contain bad relief character.",
+			'Value', $self->{$key},
+		;
 	}
 	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
-		err "Parameter '$key' has value with pipe character.";
+		err "Parameter '$key' has value with pipe character.",
+			'Value', $self->{$key},
+		;
 	}
 
 	return;
