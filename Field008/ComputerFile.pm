@@ -3,6 +3,7 @@ package Data::MARC::Field008::ComputerFile;
 use strict;
 use warnings;
 
+use Data::MARC::Field008::Utils qw(check_target_audience);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
 
@@ -41,7 +42,7 @@ sub BUILD {
 	check_length_fix($self, 'raw', 16);
 
 	# Check 'target_audience'.
-	# TODO
+	check_target_audience($self, 'target_audience');
 
 	# Check 'type_of_computer_file'.
 	# TODO
