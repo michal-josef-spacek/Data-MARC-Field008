@@ -5,7 +5,8 @@ use warnings;
 
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required check_strings);
-use Data::MARC::Field008::Utils qw(check_map_cartographic_material_type check_map_projection
+use Data::MARC::Field008::Utils qw(check_map_cartographic_material_type
+	check_map_government_publication check_map_projection
 	check_map_relief);
 
 our $VERSION = 0.01;
@@ -49,7 +50,7 @@ sub BUILD {
 	# TODO
 
 	# Check 'government_publication'.
-	# TODO
+	check_map_government_publication($self, 'government_publication');
 
 	# Check 'index'.
 	# TODO
