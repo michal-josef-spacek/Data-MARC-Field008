@@ -3,8 +3,8 @@ package Data::MARC::Field008::Map;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_index check_map_cartographic_material_type
-	check_map_government_publication check_map_item_form check_map_projection
+use Data::MARC::Field008::Utils qw(check_government_publication check_index
+	check_map_cartographic_material_type check_map_item_form check_map_projection
 	check_map_relief check_map_special_format);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required check_strings);
@@ -50,7 +50,7 @@ sub BUILD {
 	check_map_item_form($self, 'form_of_item');
 
 	# Check 'government_publication'.
-	check_map_government_publication($self, 'government_publication');
+	check_government_publication($self, 'government_publication');
 
 	# Check 'index'.
 	check_index($self, 'index');
