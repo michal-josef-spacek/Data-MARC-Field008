@@ -12,6 +12,7 @@ my $obj = Data::MARC::Field008::Map->new(
 	'index' => '|',
 	'projection' => 'aa',
 	'relief' => 'z   ',
+	'special_format_characteristics' => '  ',
 	'type_of_cartographic_material' => 'a',
 );
 isa_ok($obj, 'Data::MARC::Field008::Map');
@@ -24,6 +25,7 @@ $obj = Data::MARC::Field008::Map->new(
 	'projection' => '  ',
 	'relief' => 'z   ',
 	'raw' => 'z      e     1  ',
+	'special_format_characteristics' => '  ',
 	'type_of_cartographic_material' => 'e',
 );
 isa_ok($obj, 'Data::MARC::Field008::Map');

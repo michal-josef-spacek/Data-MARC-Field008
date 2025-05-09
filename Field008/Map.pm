@@ -7,7 +7,7 @@ use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required check_strings);
 use Data::MARC::Field008::Utils qw(check_index check_map_cartographic_material_type
 	check_map_government_publication check_map_item_form check_map_projection
-	check_map_relief);
+	check_map_relief check_map_special_format);
 
 our $VERSION = 0.01;
 
@@ -65,7 +65,7 @@ sub BUILD {
 	check_map_relief($self, 'relief');
 
 	# Check 'special_format_characteristics'.
-	# TODO
+	check_map_special_format($self, 'special_format_characteristics');
 
 	# Check 'type_of_cartographic_material'.
 	check_map_cartographic_material_type($self, 'type_of_cartographic_material');
