@@ -11,7 +11,6 @@ use Readonly;
 Readonly::Array our @EXPORT_OK => qw(check_date check_map_cartographic_material_type
 	check_map_government_publication check_map_item_form check_map_projection
 	check_map_relief check_type_of_date);
-Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
 Readonly::Array our @MAP_CARTOGRAPHIC_MATERIAL_TYPES => qw(a b c d e f g u z |);
 Readonly::Array our @MAP_GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
 	'l', 'm', 'o', 's', 'u', 'z', '|');
@@ -22,6 +21,7 @@ Readonly::Array our @MAP_PROJECTIONS => ('  ', 'aa', 'ab', 'ac', 'ad', 'ae',
 	'bf', 'bg', 'bh', 'bi', 'bj', 'bk', 'bl', 'bo', 'br', 'bs', 'bu', 'bz',
 	'ca', 'cb', 'cc', 'ce', 'cp', 'cu', 'cz', 'da', 'db', 'dc', 'dd', 'de',
 	'df', 'dg', 'dh', 'dl', 'zz', '||');
+Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
 
 our $VERSION = 0.01;
 
