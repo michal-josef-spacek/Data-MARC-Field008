@@ -3,7 +3,7 @@ package Data::MARC::Field008::VisualMaterial;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_government_publication
+use Data::MARC::Field008::Utils qw(check_government_publication check_item_form
 	check_target_audience);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
@@ -42,7 +42,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check 'form_of_item'.
-	# TODO
+	check_item_form($self, 'form_of_item');
 
 	# Check 'government_publication'.
 	check_government_publication($self, 'government_publication');
