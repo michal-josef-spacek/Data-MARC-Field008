@@ -9,6 +9,7 @@ use Test::NoWarnings;
 my $obj = Data::MARC::Field008::Map->new(
 	'projection' => 'aa',
 	'relief' => 'z   ',
+	'type_of_cartographic_material' => 'a',
 );
 isa_ok($obj, 'Data::MARC::Field008::Map');
 
@@ -17,5 +18,6 @@ $obj = Data::MARC::Field008::Map->new(
 	'projection' => '  ',
 	'relief' => 'z   ',
 	'raw' => 'z      e     1  ',
+	'type_of_cartographic_material' => 'e',
 );
 isa_ok($obj, 'Data::MARC::Field008::Map');

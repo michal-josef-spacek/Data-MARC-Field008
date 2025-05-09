@@ -5,7 +5,8 @@ use warnings;
 
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required check_strings);
-use Data::MARC::Field008::Utils qw(check_map_projection check_map_relief);
+use Data::MARC::Field008::Utils qw(check_map_cartographic_material_type check_map_projection
+	check_map_relief);
 
 our $VERSION = 0.01;
 
@@ -66,7 +67,7 @@ sub BUILD {
 	# TODO
 
 	# Check 'type_of_cartographic_material'.
-	# TODO
+	check_map_cartographic_material_type($self, 'type_of_cartographic_material');
 
 	return;
 }
