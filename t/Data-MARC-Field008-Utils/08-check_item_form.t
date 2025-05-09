@@ -3,7 +3,7 @@ use warnings;
 
 use English;
 use Error::Pure::Utils qw(clean);
-use Data::MARC::Field008::Utils qw(check_map_item_form);
+use Data::MARC::Field008::Utils qw(check_item_form);
 use Test::More 'tests' => 9;
 use Test::NoWarnings;
 
@@ -11,27 +11,27 @@ use Test::NoWarnings;
 my $self = {
 	'key' => 'a',
 };
-my $ret = check_map_item_form($self, 'key');
+my $ret = check_item_form($self, 'key');
 is($ret, undef, 'Right item form is present (a).');
 
 # Test.
 $self = {
 	'key' => ' ',
 };
-$ret = check_map_item_form($self, 'key');
+$ret = check_item_form($self, 'key');
 is($ret, undef, 'Right item form is present ( ).');
 
 # Test.
 $self = {
 	'key' => '|',
 };
-$ret = check_map_item_form($self, 'key');
+$ret = check_item_form($self, 'key');
 is($ret, undef, 'Right item form is present (|).');
 
 # Test.
 $self = {};
 eval {
-	check_map_item_form($self, 'key');
+	check_item_form($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' is required.\n",
 	"Parameter 'key' is required (key not exists).");
@@ -42,7 +42,7 @@ $self = {
 	'key' => undef,
 };
 eval {
-	check_map_item_form($self, 'key');
+	check_item_form($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' is required.\n",
 	"Parameter 'key' is required (undef).");
@@ -53,7 +53,7 @@ $self = {
 	'key' => 'foo',
 };
 eval {
-	check_map_item_form($self, 'key');
+	check_item_form($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' length is bad.\n",
 	"Parameter 'key' length is bad (foo).");
@@ -64,7 +64,7 @@ $self = {
 	'key' => 'e',
 };
 eval {
-	check_map_item_form($self, 'key');
+	check_item_form($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' has bad value.\n",
 	"Parameter 'key' has bad value (e).");
@@ -75,7 +75,7 @@ $self = {
 	'key' => [],
 };
 eval {
-	check_map_item_form($self, 'key');
+	check_item_form($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' must be a scalar value.\n",
 	"Parameter 'key' must be a scalar value ([]).");

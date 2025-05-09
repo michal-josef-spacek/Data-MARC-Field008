@@ -10,16 +10,16 @@ use Readonly;
 
 Readonly::Array our @EXPORT_OK => qw(check_book_illustration
 	check_conference_publication check_date check_government_publication
-	check_index check_map_cartographic_material_type check_map_item_form
+	check_index check_item_form check_map_cartographic_material_type
 	check_map_projection check_map_relief check_map_special_format
 	check_target_audience check_type_of_date);
 Readonly::Array our @CONFERENCE_PUBLICATIONS => qw(0 1 |);
 Readonly::Array our @GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
 	'l', 'm', 'o', 's', 'u', 'z', '|');
 Readonly::Array our @INDEXES => qw(0 1 |);
-Readonly::Array our @MAP_CARTOGRAPHIC_MATERIAL_TYPES => qw(a b c d e f g u z |);
-Readonly::Array our @MAP_ITEM_FORMS => (' ', 'a', 'b', 'c', 'd', 'f', 'o', 'q',
+Readonly::Array our @ITEM_FORMS => (' ', 'a', 'b', 'c', 'd', 'f', 'o', 'q',
 	'r', 's', '|');
+Readonly::Array our @MAP_CARTOGRAPHIC_MATERIAL_TYPES => qw(a b c d e f g u z |);
 Readonly::Array our @MAP_PROJECTIONS => ('  ', 'aa', 'ab', 'ac', 'ad', 'ae',
 	'af', 'ag', 'am', 'an', 'ap', 'au', 'az', 'ba', 'bb', 'bc', 'bd', 'be',
 	'bf', 'bg', 'bh', 'bi', 'bj', 'bk', 'bl', 'bo', 'br', 'bs', 'bu', 'bz',
@@ -176,6 +176,32 @@ sub check_index {
 	return;
 }
 
+sub check_item_form {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 1) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if (none { $self->{$key} eq $_ } @ITEM_FORMS) {
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
 sub check_map_cartographic_material_type {
 	my ($self, $key) = @_;
 
@@ -194,32 +220,6 @@ sub check_map_cartographic_material_type {
 		;
 	}
 	if (none { $self->{$key} eq $_ } @MAP_CARTOGRAPHIC_MATERIAL_TYPES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
-
-	return;
-}
-
-sub check_map_item_form {
-	my ($self, $key) = @_;
-
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
-	if (none { $self->{$key} eq $_ } @MAP_ITEM_FORMS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
