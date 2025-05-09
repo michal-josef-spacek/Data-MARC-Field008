@@ -46,9 +46,10 @@ t/Data-MARC-Field008-Utils/02-version.t
 t/Data-MARC-Field008-Utils/03-check_date.t
 t/Data-MARC-Field008-Utils/04-check_map_cartographic_material_type.t
 t/Data-MARC-Field008-Utils/05-check_map_government_publication.t
-t/Data-MARC-Field008-Utils/06-check_map_projection.t
-t/Data-MARC-Field008-Utils/07-check_map_relief.t
-t/Data-MARC-Field008-Utils/08-check_type_of_date.t
+t/Data-MARC-Field008-Utils/06-check_map_item_form.t
+t/Data-MARC-Field008-Utils/07-check_map_projection.t
+t/Data-MARC-Field008-Utils/08-check_map_relief.t
+t/Data-MARC-Field008-Utils/09-check_type_of_date.t
 t/Data-MARC-Field008-VisualMaterial/01-use.t
 t/Data-MARC-Field008-VisualMaterial/02-version.t
 t/Data-MARC-Field008/01-use.t
