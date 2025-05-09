@@ -3,7 +3,8 @@ package Data::MARC::Field008::ContinuingResource;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_government_publication);
+use Data::MARC::Field008::Utils qw(check_conference_publication
+	check_government_publication);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
 
@@ -61,7 +62,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check 'conference_publication'.
-	# TODO
+	check_conference_publication($self, 'conference_publication');
 
 	# Check 'entry_convention'.
 	# TODO

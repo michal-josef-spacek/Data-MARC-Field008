@@ -3,8 +3,8 @@ package Data::MARC::Field008::Book;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_government_publication check_index
-	check_target_audience);
+use Data::MARC::Field008::Utils qw(check_conference_publication
+	check_government_publication check_index check_target_audience);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
 
@@ -62,7 +62,7 @@ sub BUILD {
 	# TODO
 
 	# Check 'conference_publication'.
-	# TODO
+	check_conference_publication($self, 'conference_publication');
 
 	# Check 'festschrift'.
 	# TODO
