@@ -3,7 +3,7 @@ package Data::MARC::Field008::Book;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_book_illustration
+use Data::MARC::Field008::Utils qw(check_book_biography check_book_illustration
 	check_conference_publication check_government_publication check_index
 	check_item_form check_target_audience);
 use Mo qw(build is);
@@ -60,7 +60,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check 'biography'.
-	# TODO
+	check_book_biography($self, 'biography');
 
 	# Check 'conference_publication'.
 	check_conference_publication($self, 'conference_publication');
