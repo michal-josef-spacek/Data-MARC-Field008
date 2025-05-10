@@ -8,15 +8,16 @@ use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
 use Readonly;
 
-Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_illustration
-	check_computer_file_item_form check_conference_publication check_date
-	check_government_publication check_index check_item_form
-	check_map_cartographic_material_type check_map_projection
-	check_map_relief check_map_special_format check_target_audience
-	check_type_of_date);
+Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
+	check_book_illustration check_computer_file_item_form
+	check_conference_publication check_date check_government_publication
+	check_index check_item_form check_map_cartographic_material_type
+	check_map_projection check_map_relief check_map_special_format
+	check_target_audience check_type_of_date);
 Readonly::Array our @BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @COMPUTER_FILE_ITEM_FORMS => (' ', 'o', 'q', '|');
 Readonly::Array our @CONFERENCE_PUBLICATIONS => qw(0 1 |);
+Readonly::Array our @FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
 	'l', 'm', 'o', 's', 'u', 'z', '|');
 Readonly::Array our @INDEXES => qw(0 1 |);
@@ -52,6 +53,32 @@ sub check_book_biography {
 		;
 	}
 	if (none { $self->{$key} eq $_ } @BIOGRAPHIES) {
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
+sub check_book_festschrift {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 1) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if (none { $self->{$key} eq $_ } @FESTSCHRIFTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
