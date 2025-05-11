@@ -14,10 +14,10 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_conference_publication check_continuing_resource_entry_convention
 	check_continuing_resource_form_of_original_item
 	check_continuing_resource_frequency check_continuing_resource_nature_of_content
-	check_continuing_resource_regularity check_date check_government_publication
-	check_index check_item_form check_map_cartographic_material_type
-	check_map_projection check_map_relief check_map_special_format
-	check_target_audience check_type_of_date);
+	check_continuing_resource_regularity check_continuing_resource_type
+	check_date check_government_publication check_index check_item_form
+	check_map_cartographic_material_type check_map_projection check_map_relief
+	check_map_special_format check_target_audience check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @BOOK_LITERARY_FORMS => qw(0 1 d e f h i j m p s u |);
@@ -31,6 +31,8 @@ Readonly::Array our @CONTINUING_RESOURCES_FREQUENCIES => (' ', 'a', 'b', 'c',
 	'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'q', 's', 't', 'u', 'w',
 	'z', '|');
 Readonly::Array our @CONTINUING_RESOURCES_REGULARITIES => qw(n r u x |);
+Readonly::Array our @CONTINUING_RESOURCES_TYPES => (' ', 'd', 'g', 'h', 'j',
+	'l', 'm', 'n', 'p', 'r', 's', 't', 'w', '|');
 Readonly::Array our @GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
 	'l', 'm', 'o', 's', 'u', 'z', '|');
 Readonly::Array our @INDEXES => qw(0 1 |);
@@ -393,6 +395,32 @@ sub check_continuing_resource_regularity {
 		;
 	}
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_REGULARITIES) {
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
+sub check_continuing_resource_type {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 1) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_TYPES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
