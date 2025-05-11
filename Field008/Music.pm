@@ -3,7 +3,7 @@ package Data::MARC::Field008::Music;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_item_form check_target_audience);
+use Data::MARC::Field008::Utils qw(check_item_form check_music_part check_target_audience);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
 
@@ -64,7 +64,7 @@ sub BUILD {
 	# TODO
 
 	# Check 'music_parts'.
-	# TODO
+	check_music_part($self, 'music_parts');
 
 	# Check 'raw'
 	check_length_fix($self, 'raw', 16);
