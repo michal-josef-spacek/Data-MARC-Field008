@@ -9,6 +9,7 @@ use Data::MARC::Field008::Utils qw(check_conference_publication
 	check_continuing_resource_frequency
 	check_continuing_resource_nature_of_content
 	check_continuing_resource_regularity
+	check_continuing_resource_type
 	check_government_publication check_item_form);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
@@ -100,7 +101,7 @@ sub BUILD {
 	check_continuing_resource_regularity($self, 'regularity');
 
 	# Check 'type_of_continuing_resource'.
-	# TODO
+	check_continuing_resource_type($self, 'type_of_continuing_resource');
 
 	return;
 }
