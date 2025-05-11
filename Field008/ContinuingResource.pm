@@ -9,6 +9,7 @@ use Data::MARC::Field008::Utils qw(check_conference_publication
 	check_continuing_resource_frequency
 	check_continuing_resource_nature_of_content
 	check_continuing_resource_nature_of_entire_work
+	check_continuing_resource_original_alphabet_or_script
 	check_continuing_resource_regularity
 	check_continuing_resource_type
 	check_government_publication check_item_form);
@@ -93,7 +94,7 @@ sub BUILD {
 	check_continuing_resource_nature_of_entire_work($self, 'nature_of_entire_work');
 
 	# Check 'original_alphabet_or_script_of_title'.
-	# TODO
+	check_continuing_resource_original_alphabet_or_script($self, 'original_alphabet_or_script_of_title');
 
 	# Check 'raw'
 	check_length_fix($self, 'raw', 16);
