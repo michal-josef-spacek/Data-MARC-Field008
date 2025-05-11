@@ -12,14 +12,14 @@ my $self = {
 	'key' => '0',
 };
 my $ret = check_book_festschrift($self, 'key');
-is($ret, undef, 'Right projection is present (a).');
+is($ret, undef, 'Right book festschrift is present (0).');
 
 # Test.
 $self = {
 	'key' => '|',
 };
 $ret = check_book_festschrift($self, 'key');
-is($ret, undef, 'Right projection is present (|).');
+is($ret, undef, 'Right book festschrift is present (|).');
 
 # Test.
 $self = {};
@@ -60,7 +60,7 @@ eval {
 	check_book_festschrift($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' has bad value.\n",
-	"Parameter 'key' has bad value (i).");
+	"Parameter 'key' has bad value (2).");
 clean();
 
 # Test.
