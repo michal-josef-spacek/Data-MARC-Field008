@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008::Utils qw(check_conference_publication
+	check_continuing_resource_entry_convention
 	check_continuing_resource_frequency
 	check_continuing_resource_nature_of_content
 	check_government_publication check_item_form);
@@ -67,7 +68,7 @@ sub BUILD {
 	check_conference_publication($self, 'conference_publication');
 
 	# Check 'entry_convention'.
-	# TODO
+	check_continuing_resource_entry_convention($self, 'entry_convention');
 
 	# Check 'form_of_item'.
 	check_item_form($self, 'form_of_item');
