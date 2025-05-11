@@ -2,15 +2,32 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008;
+use Data::MARC::Field008::Book;
 use English;
 use Error::Pure::Utils qw(clean);
 use Test::More 'tests' => 6;
 use Test::NoWarnings;
 
+# Common material.
+my $material = Data::MARC::Field008::Book->new(
+	'biography' => ' ',
+	'conference_publication' => '0',
+	'festschrift' => '0',
+	'form_of_item' => 'r',
+	'government_publication' => ' ',
+	'illustrations' => '    ',
+	'index' => '0',
+	'literary_form' => '0',
+	'nature_of_content' => '    ',
+	'target_audience' => ' ',
+);
+
 # Test.
 my $obj = Data::MARC::Field008->new(
 	'date1' => '    ',
 	'date2' => '    ',
+	'material' => $material,
+	'material_type' => 'book',
 	'type_of_date' => 's',
 );
 isa_ok($obj, 'Data::MARC::Field008');
@@ -20,6 +37,8 @@ $obj = Data::MARC::Field008->new(
 	'date_entered_on_file' => '      ',
 	'date1' => '    ',
 	'date2' => '    ',
+	'material' => $material,
+	'material_type' => 'book',
 	'type_of_date' => 'b',
 );
 isa_ok($obj, 'Data::MARC::Field008');
@@ -29,6 +48,7 @@ $obj = Data::MARC::Field008->new(
 	'date_entered_on_file' => '      ',
 	'date1' => '18uu',
 	'date2' => '    ',
+	'material_type' => 'book',
 	'type_of_date' => 's',
 );
 isa_ok($obj, 'Data::MARC::Field008');
@@ -39,6 +59,8 @@ eval {
 		'date_entered_on_file' => '      ',
 		'date1' => '18  ',
 		'date2' => '    ',
+		'material' => $material,
+		'material_type' => 'book',
 		'type_of_date' => 's',
 	);
 };
@@ -49,7 +71,11 @@ clean();
 # Test.
 eval {
 	Data::MARC::Field008->new(
+		'date_entered_on_file' => '      ',
 		'date1' => '18||',
+		'date2' => '    ',
+		'material' => $material,
+		'material_type' => 'book',
 	);
 };
 is($EVAL_ERROR, "Parameter 'date1' has value with pipe character.\n",

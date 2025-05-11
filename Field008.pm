@@ -5,11 +5,12 @@ use warnings;
 
 use Data::MARC::Field008::Utils qw(check_date check_type_of_date);
 use Mo qw(build is);
-use Mo::utils 0.22 qw(check_length_fix check_number check_regexp check_strings);
+use Mo::utils 0.22 qw(check_isa check_length_fix check_number check_regexp
+	check_required check_strings);
 use Readonly;
 
 Readonly::Array our @MATERIAL_TYPES => qw(book computer_file continuing_resource
-	map music visual_material mixed_material);
+	map mixed_material music visual_material);
 
 our $VERSION = 0.01;
 
@@ -72,11 +73,26 @@ sub BUILD {
 	# Check 'date2'.
 	check_date($self, 'date2');
 
-	# Check 'material'.
-	# TODO
-
 	# Check 'material_type'.
+	check_required($self, 'material_type');
 	check_strings($self, 'material_type', \@MATERIAL_TYPES);
+
+	# Check 'material'.
+	if ($self->material_type eq 'book') {
+		check_isa($self, 'material', 'Data::MARC::Field008::Book');
+	} elsif ($self->material_type eq 'computer_file') {
+		check_isa($self, 'material', 'Data::MARC::Field008::ComputerFile');
+	} elsif ($self->material_type eq 'continuing_resource') {
+		check_isa($self, 'material', 'Data::MARC::Field008::ContinuingResource');
+	} elsif ($self->material_type eq 'map') {
+		check_isa($self, 'material', 'Data::MARC::Field008::Map');
+	} elsif ($self->material_type eq 'mixed_material') {
+		check_isa($self, 'material', 'Data::MARC::Field008::MixedMaterial');
+	} elsif ($self->material_type eq 'music') {
+		check_isa($self, 'material', 'Data::MARC::Field008::Music');
+	} elsif ($self->material_type eq 'visual_material') {
+		check_isa($self, 'material', 'Data::MARC::Field008::VisualMaterial');
+	}
 
 	# Check place_of_publication.
 	check_length_fix($self, 'place_of_publication', 3);
