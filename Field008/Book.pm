@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008::Utils qw(check_book_biography check_book_festschrift
-	check_book_illustration check_conference_publication
+	check_book_illustration check_book_literary_form check_conference_publication
 	check_government_publication check_index check_item_form
 	check_target_audience);
 use Mo qw(build is);
@@ -82,7 +82,7 @@ sub BUILD {
 	check_index($self, 'index');
 
 	# Check 'literary_form'.
-	# TODO
+	check_book_literary_form($self, 'literary_form');
 
 	# Check 'nature_of_content'.
 	# TODO
