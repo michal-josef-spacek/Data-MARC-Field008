@@ -14,12 +14,12 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_government_publication check_index check_item_form
 	check_map_cartographic_material_type check_map_projection check_map_relief
 	check_map_special_format check_target_audience check_type_of_date);
-Readonly::Array our @BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
+Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
+Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @BOOK_LITERARY_FORMS => qw(0 1 d e f h i j m p s u |);
 Readonly::Array our @COMPUTER_FILE_ITEM_FORMS => (' ', 'o', 'q', '|');
 Readonly::Array our @COMPUTER_FILE_TYPE => qw(a b c d e f g h i j m u z |);
 Readonly::Array our @CONFERENCE_PUBLICATIONS => qw(0 1 |);
-Readonly::Array our @FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @GOVERNMENT_PUBLICATIONS => (' ', 'a', 'c', 'f', 'i',
 	'l', 'm', 'o', 's', 'u', 'z', '|');
 Readonly::Array our @INDEXES => qw(0 1 |);
@@ -54,7 +54,7 @@ sub check_book_biography {
 			'Value', $self->{$key},
 		;
 	}
-	if (none { $self->{$key} eq $_ } @BIOGRAPHIES) {
+	if (none { $self->{$key} eq $_ } @BOOK_BIOGRAPHIES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
@@ -80,7 +80,7 @@ sub check_book_festschrift {
 			'Value', $self->{$key},
 		;
 	}
-	if (none { $self->{$key} eq $_ } @FESTSCHRIFTS) {
+	if (none { $self->{$key} eq $_ } @BOOK_FESTSCHRIFTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
