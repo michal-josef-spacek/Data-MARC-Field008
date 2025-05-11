@@ -5,6 +5,7 @@ use warnings;
 
 use Data::MARC::Field008::Utils qw(check_conference_publication
 	check_continuing_resource_entry_convention
+	check_continuing_resource_form_of_original_item
 	check_continuing_resource_frequency
 	check_continuing_resource_nature_of_content
 	check_government_publication check_item_form);
@@ -74,7 +75,7 @@ sub BUILD {
 	check_item_form($self, 'form_of_item');
 
 	# Check 'form_of_original_item'.
-	# TODO
+	check_continuing_resource_form_of_original_item($self, 'form_of_original_item');
 
 	# Check 'frequency'.
 	check_continuing_resource_frequency($self, 'frequency');
