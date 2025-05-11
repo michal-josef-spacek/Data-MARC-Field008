@@ -367,18 +367,18 @@ sub check_continuing_resource_nature_of_content {
 			'Reference', (ref, $self->{$key}),
 		;
 	}
-	if (length $self->{$key} != 4) {
+	if (length $self->{$key} != 3) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
 			'Value', $self->{$key},
 		;
 	}
-	if ($self->{$key} !~ m/^[\ abcdefghiklmnopqrstuvwyz56\|]{4}$/ms) {
+	if ($self->{$key} !~ m/^[\ abcdefghiklmnopqrstuvwyz56\|]{3}$/ms) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
 	}
-	if ($self->{$key} ne '||||' && $self->{$key} =~ m/\|/ms) {
+	if ($self->{$key} ne '|||' && $self->{$key} =~ m/\|/ms) {
 		err "Parameter '$key' has value with pipe character.",
 			'Value', $self->{$key},
 		;

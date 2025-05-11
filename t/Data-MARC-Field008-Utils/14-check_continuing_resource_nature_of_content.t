@@ -9,24 +9,24 @@ use Test::NoWarnings;
 
 # Test.
 my $self = {
-	'key' => 'ab  ',
+	'key' => 'ab ',
 };
 my $ret = check_continuing_resource_nature_of_content($self, 'key');
-is($ret, undef, 'Right book nature of content is present (ab  ).');
+is($ret, undef, 'Right book nature of content is present (ab ).');
 
 # Test.
 $self = {
-	'key' => '    ',
+	'key' => '   ',
 };
 $ret = check_continuing_resource_nature_of_content($self, 'key');
-is($ret, undef, 'Right book nature of content is present (    ).');
+is($ret, undef, 'Right book nature of content is present (   ).');
 
 # Test.
 $self = {
-	'key' => '||||',
+	'key' => '|||',
 };
 $ret = check_continuing_resource_nature_of_content($self, 'key');
-is($ret, undef, 'Right book nature of content is present (||||).');
+is($ret, undef, 'Right book nature of content is present (|||).');
 
 # Test.
 $self = {};
@@ -50,35 +50,35 @@ clean();
 
 # Test.
 $self = {
-	'key' => 'a|||',
+	'key' => 'a||',
 };
 eval {
 	check_continuing_resource_nature_of_content($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' has value with pipe character.\n",
-	"Parameter 'key' has value with pipe character (a|||).");
+	"Parameter 'key' has value with pipe character (a||).");
 clean();
 
 # Test.
 $self = {
-	'key' => 'foo',
+	'key' => 'food',
 };
 eval {
 	check_continuing_resource_nature_of_content($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' length is bad.\n",
-	"Parameter 'key' length is bad (foo).");
+	"Parameter 'key' length is bad (food).");
 clean();
 
 # Test.
 $self = {
-	'key' => 'foo1',
+	'key' => 'fo1',
 };
 eval {
 	check_continuing_resource_nature_of_content($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' has bad value.\n",
-	"Parameter 'key' has bad value (foo1).");
+	"Parameter 'key' has bad value (fo1).");
 clean();
 
 # Test.
