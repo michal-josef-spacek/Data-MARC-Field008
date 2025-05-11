@@ -14,7 +14,9 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_conference_publication check_continuing_resource_entry_convention
 	check_continuing_resource_form_of_original_item
 	check_continuing_resource_frequency check_continuing_resource_nature_of_content
-	check_continuing_resource_nature_of_entire_work check_continuing_resource_regularity
+	check_continuing_resource_nature_of_entire_work
+	check_continuing_resource_original_alphabet_or_script
+	check_continuing_resource_regularity
 	check_continuing_resource_type check_date check_government_publication
 	check_index check_item_form check_map_cartographic_material_type
 	check_map_projection check_map_relief check_map_special_format
@@ -34,6 +36,9 @@ Readonly::Array our @CONTINUING_RESOURCES_FREQUENCIES => (' ', 'a', 'b', 'c',
 Readonly::Array our @CONTINUING_RESOURCES_NATURE_OF_ENTIRE_WORKS => (' ', 'a',
 	'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p',
 	'q', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z', '5', '6', '|');
+Readonly::Array our @CONTINUING_RESOURCES_ORIGINAL_ALPHABETS_OR_SCRIPTS => (' ',
+	'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'u', 'z',
+	'|');
 Readonly::Array our @CONTINUING_RESOURCES_REGULARITIES => qw(n r u x |);
 Readonly::Array our @CONTINUING_RESOURCES_TYPES => (' ', 'd', 'g', 'h', 'j',
 	'l', 'm', 'n', 'p', 'r', 's', 't', 'w', '|');
@@ -399,6 +404,32 @@ sub check_continuing_resource_nature_of_entire_work {
 		;
 	}
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_NATURE_OF_ENTIRE_WORKS) {
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
+sub check_continuing_resource_original_alphabet_or_script {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 1) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_ORIGINAL_ALPHABETS_OR_SCRIPTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
