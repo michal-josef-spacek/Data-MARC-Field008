@@ -72,12 +72,7 @@ sub check_book_biography {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @BOOK_BIOGRAPHIES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -91,12 +86,7 @@ sub check_book_festschrift {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @BOOK_FESTSCHRIFTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -110,12 +100,7 @@ sub check_book_illustration {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 4) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 4);
 	if ($self->{$key} !~ m/^[\ abcdefghijklmop\|]{4}$/ms) {
 		err "Parameter '$key' contain bad book illustration character.",
 			'Value', $self->{$key},
@@ -134,12 +119,7 @@ sub check_book_literary_form {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @BOOK_LITERARY_FORMS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -153,12 +133,7 @@ sub check_book_nature_of_content {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 4) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 4);
 	if ($self->{$key} !~ m/^[\ abcdefgijklmnopqrstuvwyz256\|]{4}$/ms) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -177,12 +152,7 @@ sub check_computer_file_item_form {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @COMPUTER_FILE_ITEM_FORMS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -196,12 +166,7 @@ sub check_computer_file_type {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @COMPUTER_FILE_TYPE) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -215,12 +180,7 @@ sub check_conference_publication {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONFERENCE_PUBLICATIONS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -234,12 +194,7 @@ sub check_continuing_resource_entry_convention {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_ENTRY_CONVENTIONS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -253,12 +208,7 @@ sub check_continuing_resource_form_of_original_item {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_FORMS_OF_ORIGINAL_ITEM) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -272,12 +222,7 @@ sub check_continuing_resource_frequency {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_FREQUENCIES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -291,12 +236,7 @@ sub check_continuing_resource_nature_of_content {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 3) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 3);
 	if ($self->{$key} !~ m/^[\ abcdefghiklmnopqrstuvwyz56\|]{3}$/ms) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -315,12 +255,7 @@ sub check_continuing_resource_nature_of_entire_work {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_NATURE_OF_ENTIRE_WORKS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -334,12 +269,7 @@ sub check_continuing_resource_original_alphabet_or_script {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_ORIGINAL_ALPHABETS_OR_SCRIPTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -353,12 +283,7 @@ sub check_continuing_resource_regularity {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_REGULARITIES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -372,12 +297,7 @@ sub check_continuing_resource_type {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_TYPES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -391,12 +311,7 @@ sub check_date {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 4) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 4);
 	if ($self->{$key} !~ m/^[\ \|\du]{4}$/ms) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -420,12 +335,7 @@ sub check_government_publication {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @GOVERNMENT_PUBLICATIONS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -439,12 +349,7 @@ sub check_index {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @INDEXES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -458,12 +363,7 @@ sub check_item_form {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @ITEM_FORMS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -477,12 +377,7 @@ sub check_map_cartographic_material_type {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @MAP_CARTOGRAPHIC_MATERIAL_TYPES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -496,12 +391,7 @@ sub check_map_projection {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 2) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 2);
 	if (none { $self->{$key} eq $_ } @MAP_PROJECTIONS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -515,12 +405,7 @@ sub check_map_relief {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 4) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 4);
 	if ($self->{$key} !~ m/^[\ abcdefgijkmz\|]{4}$/ms) {
 		err "Parameter '$key' contain bad relief character.",
 			'Value', $self->{$key},
@@ -539,12 +424,7 @@ sub check_map_special_format {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 2) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 2);
 	if ($self->{$key} !~ m/^[\ ejklnoprz\|]{2}$/ms) {
 		err "Parameter '$key' contain bad special format characteristics character.",
 			'Value', $self->{$key},
@@ -563,12 +443,7 @@ sub check_music_composition_form {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 2) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 2);
 	if (none { $self->{$key} eq $_ } @MUSIC_COMPOSITION_FORMS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -582,12 +457,7 @@ sub check_music_part {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @MUSIC_PARTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -601,12 +471,7 @@ sub check_music_transposition_and_arrangement {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -620,12 +485,7 @@ sub check_target_audience {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @TARGET_AUDIENCES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -639,12 +499,7 @@ sub check_type_of_date {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	if (length $self->{$key} != 1) {
-		err "Parameter '$key' length is bad.",
-			'Length', (length $self->{$key}),
-			'Value', $self->{$key},
-		;
-	}
+	_check_length($self, $key, 1);
 	if (none { $self->{$key} eq $_ } @TYPE_OF_DATES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
@@ -663,6 +518,20 @@ sub _check_base {
 	if (ref $self->{$key} ne '') {
 		err "Parameter '$key' must be a scalar value.",
 			'Reference', (ref, $self->{$key}),
+		;
+	}
+
+	return;
+}
+
+sub _check_length {
+	my ($self, $key, $exp_length) = @_;
+
+	if (length $self->{$key} != $exp_length) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+			'Expected length', $exp_length,
 		;
 	}
 
