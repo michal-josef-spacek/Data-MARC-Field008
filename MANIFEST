@@ -30,6 +30,7 @@ t/Data-MARC-Field008-Book/02-version.t
 t/Data-MARC-Field008-Book/03-new.t
 t/Data-MARC-Field008-ComputerFile/01-use.t
 t/Data-MARC-Field008-ComputerFile/02-version.t
+t/Data-MARC-Field008-ComputerFile/03-new.t
 t/Data-MARC-Field008-ContinuingResource/01-use.t
 t/Data-MARC-Field008-ContinuingResource/02-version.t
 t/Data-MARC-Field008-Map/01-use.t
