@@ -20,7 +20,8 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_continuing_resource_type check_date check_government_publication
 	check_index check_item_form check_map_cartographic_material_type
 	check_map_projection check_map_relief check_map_special_format
-	check_music_composition_form check_music_part check_target_audience
+	check_music_composition_form check_music_part
+	check_music_transposition_and_arrangement check_target_audience
 	check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
@@ -59,6 +60,8 @@ Readonly::Array our @MUSIC_COMPOSITION_FORMS => qw(an bd bg bl bt ca cb cc cg ch
 	ms mu mz nc nn op or ov pg pm po pp pr ps pt pv rc rd rg ri rp rq sd sg
 	sn sp st su sy tc tl ts uu vi vr wz za zz ||);
 Readonly::Array our @MUSIC_PARTS => (' ', 'd', 'e', 'f', 'n', 'u', '|');
+Readonly::Array our @MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS => (' ', 'a', 'b',
+	'c', 'n', 'u', '|');
 Readonly::Array our @TARGET_AUDIENCES => (' ', 'a', 'b', 'c', 'd', 'e', 'f',
 	'g', 'j', '|');
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
@@ -768,6 +771,32 @@ sub check_music_part {
 		;
 	}
 	if (none { $self->{$key} eq $_ } @MUSIC_PARTS) {
+		err "Parameter '$key' has bad value.",
+			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
+sub check_music_transposition_and_arrangement {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
+		;
+	}
+	if (length $self->{$key} != 1) {
+		err "Parameter '$key' length is bad.",
+			'Length', (length $self->{$key}),
+			'Value', $self->{$key},
+		;
+	}
+	if (none { $self->{$key} eq $_ } @MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
