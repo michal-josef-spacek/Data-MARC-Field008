@@ -71,14 +71,7 @@ our $VERSION = 0.01;
 sub check_book_biography {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -97,14 +90,7 @@ sub check_book_biography {
 sub check_book_festschrift {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -123,14 +109,7 @@ sub check_book_festschrift {
 sub check_book_illustration {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 4) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -154,14 +133,7 @@ sub check_book_illustration {
 sub check_book_literary_form {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -180,14 +152,7 @@ sub check_book_literary_form {
 sub check_book_nature_of_content {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 4) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -211,14 +176,7 @@ sub check_book_nature_of_content {
 sub check_computer_file_item_form {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -237,14 +195,7 @@ sub check_computer_file_item_form {
 sub check_computer_file_type {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -263,14 +214,7 @@ sub check_computer_file_type {
 sub check_conference_publication {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -289,14 +233,7 @@ sub check_conference_publication {
 sub check_continuing_resource_entry_convention {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -315,14 +252,7 @@ sub check_continuing_resource_entry_convention {
 sub check_continuing_resource_form_of_original_item {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -341,14 +271,7 @@ sub check_continuing_resource_form_of_original_item {
 sub check_continuing_resource_frequency {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -367,14 +290,7 @@ sub check_continuing_resource_frequency {
 sub check_continuing_resource_nature_of_content {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 3) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -398,14 +314,7 @@ sub check_continuing_resource_nature_of_content {
 sub check_continuing_resource_nature_of_entire_work {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -424,14 +333,7 @@ sub check_continuing_resource_nature_of_entire_work {
 sub check_continuing_resource_original_alphabet_or_script {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -450,14 +352,7 @@ sub check_continuing_resource_original_alphabet_or_script {
 sub check_continuing_resource_regularity {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -476,14 +371,7 @@ sub check_continuing_resource_regularity {
 sub check_continuing_resource_type {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -502,14 +390,7 @@ sub check_continuing_resource_type {
 sub check_date {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 4) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -538,14 +419,7 @@ sub check_date {
 sub check_government_publication {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -564,14 +438,7 @@ sub check_government_publication {
 sub check_index {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -590,14 +457,7 @@ sub check_index {
 sub check_item_form {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -616,14 +476,7 @@ sub check_item_form {
 sub check_map_cartographic_material_type {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -642,14 +495,7 @@ sub check_map_cartographic_material_type {
 sub check_map_projection {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 2) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -668,14 +514,7 @@ sub check_map_projection {
 sub check_map_relief {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 4) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -699,14 +538,7 @@ sub check_map_relief {
 sub check_map_special_format {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 2) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -730,14 +562,7 @@ sub check_map_special_format {
 sub check_music_composition_form {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 2) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -756,14 +581,7 @@ sub check_music_composition_form {
 sub check_music_part {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -782,14 +600,7 @@ sub check_music_part {
 sub check_music_transposition_and_arrangement {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -808,14 +619,7 @@ sub check_music_transposition_and_arrangement {
 sub check_target_audience {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -834,14 +638,7 @@ sub check_target_audience {
 sub check_type_of_date {
 	my ($self, $key) = @_;
 
-	if (! exists $self->{$key} || ! defined $self->{$key}) {
-		err "Parameter '$key' is required.";
-	}
-	if (ref $self->{$key} ne '') {
-		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
-		;
-	}
+	_check_base($self, $key);
 	if (length $self->{$key} != 1) {
 		err "Parameter '$key' length is bad.",
 			'Length', (length $self->{$key}),
@@ -851,6 +648,21 @@ sub check_type_of_date {
 	if (none { $self->{$key} eq $_ } @TYPE_OF_DATES) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
+		;
+	}
+
+	return;
+}
+
+sub _check_base {
+	my ($self, $key) = @_;
+
+	if (! exists $self->{$key} || ! defined $self->{$key}) {
+		err "Parameter '$key' is required.";
+	}
+	if (ref $self->{$key} ne '') {
+		err "Parameter '$key' must be a scalar value.",
+			'Reference', (ref, $self->{$key}),
 		;
 	}
 
