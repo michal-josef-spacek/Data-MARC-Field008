@@ -64,7 +64,7 @@ sub BUILD {
 	eval { check_visual_material_technique($self, 'technique'); };
 
 	# Check 'type_of_visual_material'.
-	# TODO
+	eval { check_visual_material_type($self, 'type_of_visual_material'); };
 
 	if ($STRICT) {
 		my @errors = err_get();
