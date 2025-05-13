@@ -4,6 +4,8 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008::Utils qw(check_date check_type_of_date);
+use Error::Pure qw(err);
+use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_isa check_length_fix check_number check_regexp
 	check_required check_strings);
@@ -102,6 +104,14 @@ sub BUILD {
 
 	# Check 'type_of_date'.
 	check_type_of_date($self, 'type_of_date');
+
+	# Explicit error in case of not strict mode.
+	my @errors = err_get();
+	if (@errors) {
+		err "Field 008 isn't valid.",
+			defined $self->{'raw'} ? ('Raw string', $self->{'raw'}) : (),
+		;
+	}
 
 	return;
 }

@@ -7,8 +7,12 @@ use Data::MARC::Field008::Utils qw(check_book_biography check_book_festschrift
 	check_book_illustration check_book_literary_form check_book_nature_of_content
 	check_conference_publication check_government_publication check_index
 	check_item_form check_target_audience);
+use Error::Pure qw(err);
+use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
+
+our $STRICT = 1;
 
 our $VERSION = 0.01;
 
@@ -60,38 +64,47 @@ has target_audience => (
 sub BUILD {
 	my $self = shift;
 
+	# Check 'raw'
+	check_length_fix($self, 'raw', 17);
+
 	# Check 'biography'.
-	check_book_biography($self, 'biography');
+	eval { check_book_biography($self, 'biography'); };
 
 	# Check 'conference_publication'.
-	check_conference_publication($self, 'conference_publication');
+	eval { check_conference_publication($self, 'conference_publication'); };
 
 	# Check 'festschrift'.
-	check_book_festschrift($self, 'festschrift');
+	eval { check_book_festschrift($self, 'festschrift'); };
 
 	# Check 'form_of_item'.
-	check_item_form($self, 'form_of_item');
+	eval { check_item_form($self, 'form_of_item'); };
 
 	# Check 'government_publication'.
-	check_government_publication($self, 'government_publication');
+	eval { check_government_publication($self, 'government_publication'); };
 
 	# Check 'illustrations'.
-	check_book_illustration($self, 'illustrations');
+	eval { check_book_illustration($self, 'illustrations'); };
 
 	# Check 'index'.
-	check_index($self, 'index');
+	eval { check_index($self, 'index'); };
 
 	# Check 'literary_form'.
-	check_book_literary_form($self, 'literary_form');
+	eval { check_book_literary_form($self, 'literary_form'); };
 
 	# Check 'nature_of_content'.
-	check_book_nature_of_content($self, 'nature_of_content');
-
-	# Check 'raw'
-	check_length_fix($self, 'raw', 16);
+	eval { check_book_nature_of_content($self, 'nature_of_content'); };
 
 	# Check 'target_audience'.
-	check_target_audience($self, 'target_audience');
+	eval { check_target_audience($self, 'target_audience'); };
+
+	if ($STRICT) {
+		my @errors = err_get();
+		if (@errors) {
+			err "Couldn't create data object of book.",
+				defined $self->raw ? ('Raw string', $self->raw) : (),
+			;
+		}
+	}
 
 	return;
 }

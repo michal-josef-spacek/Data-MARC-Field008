@@ -21,6 +21,7 @@ recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
 requires 'English' => 0;
 requires 'Error::Pure' => 0;
+requires 'Error::Pure::Utils' => 0;
 requires 'Mo' => 0;
 requires 'Mo::utils' => 0.22;
 requires 'Readonly' => 0;
