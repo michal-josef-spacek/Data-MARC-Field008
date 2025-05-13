@@ -9,24 +9,24 @@ use Test::NoWarnings;
 
 # Test.
 my $self = {
-	'key' => 'ab   ',
+	'key' => 'ab    ',
 };
 my $ret = check_music_accompanying_matter($self, 'key');
-is($ret, undef, 'Right music accompanying matter is present (ab   ).');
+is($ret, undef, 'Right music accompanying matter is present (ab    ).');
 
 # Test.
 $self = {
-	'key' => '     ',
+	'key' => '      ',
 };
 $ret = check_music_accompanying_matter($self, 'key');
-is($ret, undef, 'Right music accompanying matter form is present (     ).');
+is($ret, undef, 'Right music accompanying matter form is present (      ).');
 
 # Test.
 $self = {
-	'key' => '|||||',
+	'key' => '||||||',
 };
 $ret = check_music_accompanying_matter($self, 'key');
-is($ret, undef, 'Right music accompanying matter form is present (|||||).');
+is($ret, undef, 'Right music accompanying matter form is present (||||||).');
 
 # Test.
 $self = {};
@@ -61,13 +61,13 @@ clean();
 
 # Test.
 $self = {
-	'key' => 'xx   ',
+	'key' => 'xx    ',
 };
 eval {
 	check_music_accompanying_matter($self, 'key');
 };
 is($EVAL_ERROR, "Parameter 'key' contains bad music accompanying matter character.\n",
-	"Parameter 'key' contains bad music accompanying matter character (xx   ).");
+	"Parameter 'key' contains bad music accompanying matter character (xx    ).");
 clean();
 
 # Test.

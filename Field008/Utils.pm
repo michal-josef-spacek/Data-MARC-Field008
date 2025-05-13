@@ -372,8 +372,8 @@ sub check_music_accompanying_matter {
 	my ($self, $key) = @_;
 
 	_check_base($self, $key);
-	_check_length($self, $key, 5);
-	if ($self->{$key} !~ m/^[\ abcdefghikrsz\|]{5}$/ms) {
+	_check_length($self, $key, 6);
+	if ($self->{$key} !~ m/^[\ abcdefghikrsz\|]{6}$/ms) {
 		err "Parameter '$key' contains bad music accompanying matter character.",
 			'Value', $self->{$key},
 		;
