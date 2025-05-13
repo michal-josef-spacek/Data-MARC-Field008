@@ -21,7 +21,7 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_index check_item_form check_map_cartographic_material_type
 	check_map_projection check_map_relief check_map_special_format
 	check_music_accompanying_matter check_music_composition_form
-	check_music_part check_music_transposition_and_arrangement
+	check_music_format check_music_part check_music_transposition_and_arrangement
 	check_target_audience check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
@@ -59,6 +59,7 @@ Readonly::Array our @MUSIC_COMPOSITION_FORMS => qw(an bd bg bl bt ca cb cc cg ch
 	cl cn co cp cr cs ct cy cz df dv fg fl fm ft gm hy jz mc md mi mo mp mr
 	ms mu mz nc nn op or ov pg pm po pp pr ps pt pv rc rd rg ri rp rq sd sg
 	sn sp st su sy tc tl ts uu vi vr wz za zz ||);
+Readonly::Array our @MUSIC_FORMATS => qw(a b c d e g h i j k l m n p u z |);
 Readonly::Array our @MUSIC_PARTS => (' ', 'd', 'e', 'f', 'n', 'u', '|');
 Readonly::Array our @MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS => (' ', 'a', 'b',
 	'c', 'n', 'u', '|');
@@ -387,6 +388,16 @@ sub check_music_composition_form {
 	_check_base($self, $key);
 	_check_length($self, $key, 2);
 	_check_bad_value($self, $key, \@MUSIC_COMPOSITION_FORMS);
+
+	return;
+}
+
+sub check_music_format {
+	my ($self, $key) = @_;
+
+	_check_base($self, $key);
+	_check_length($self, $key, 1);
+	_check_bad_value($self, $key, \@MUSIC_FORMATS);
 
 	return;
 }
