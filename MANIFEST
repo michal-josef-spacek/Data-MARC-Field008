@@ -78,8 +78,9 @@ t/Data-MARC-Field008-Utils/29-check_music_format.t
 t/Data-MARC-Field008-Utils/30-check_music_part.t
 t/Data-MARC-Field008-Utils/31-check_music_transposition_and_arrangement.t
 t/Data-MARC-Field008-Utils/32-check_visual_material_technique.t
-t/Data-MARC-Field008-Utils/33-check_target_audience.t
-t/Data-MARC-Field008-Utils/34-check_type_of_date.t
+t/Data-MARC-Field008-Utils/33-check_visual_material_type.t
+t/Data-MARC-Field008-Utils/34-check_target_audience.t
+t/Data-MARC-Field008-Utils/35-check_type_of_date.t
 t/Data-MARC-Field008-VisualMaterial/01-use.t
 t/Data-MARC-Field008-VisualMaterial/02-version.t
 t/Data-MARC-Field008/01-use.t

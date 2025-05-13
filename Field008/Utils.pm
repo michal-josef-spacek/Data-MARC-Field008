@@ -22,7 +22,8 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_map_projection check_map_relief check_map_special_format
 	check_music_accompanying_matter check_music_composition_form
 	check_music_format check_music_part check_music_transposition_and_arrangement
-	check_visual_material_technique check_target_audience check_type_of_date);
+	check_visual_material_technique check_visual_material_type
+	check_target_audience check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @BOOK_LITERARY_FORMS => qw(0 1 d e f h i j m p s u |);
@@ -64,6 +65,8 @@ Readonly::Array our @MUSIC_PARTS => (' ', 'd', 'e', 'f', 'n', 'u', '|');
 Readonly::Array our @MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS => (' ', 'a', 'b',
 	'c', 'n', 'u', '|');
 Readonly::Array our @VISUAL_MATERIAL_TECHNIQUES => qw(a c l n u z |);
+Readonly::Array our @VISUAL_MATERIAL_TYPES => qw(a b c d f g i k l m n o p q r s
+	t v w z |);
 Readonly::Array our @TARGET_AUDIENCES => (' ', 'a', 'b', 'c', 'd', 'e', 'f',
 	'g', 'j', '|');
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
@@ -429,6 +432,16 @@ sub check_visual_material_technique {
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
 	_check_bad_value($self, $key, \@VISUAL_MATERIAL_TECHNIQUES);
+
+	return;
+}
+
+sub check_visual_material_type {
+	my ($self, $key) = @_;
+
+	_check_base($self, $key);
+	_check_length($self, $key, 1);
+	_check_bad_value($self, $key, \@VISUAL_MATERIAL_TYPES);
 
 	return;
 }
