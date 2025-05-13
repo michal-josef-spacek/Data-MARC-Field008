@@ -5,8 +5,8 @@ use warnings;
 
 use Data::MARC::Field008::Utils qw(check_item_form
 	check_music_accompanying_matter check_music_composition_form
-	check_music_part check_music_transposition_and_arrangement
-	check_target_audience);
+	check_music_format check_music_part
+	check_music_transposition_and_arrangement check_target_audience);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
 
@@ -61,7 +61,7 @@ sub BUILD {
 	check_item_form($self, 'form_of_item');
 
 	# Check 'format_of_music'.
-	# TODO
+	check_music_format($self, 'format_of_music');
 
 	# Check 'literary_text_for_sound_recordings'.
 	# TODO
