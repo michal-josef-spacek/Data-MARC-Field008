@@ -4,7 +4,8 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008::Utils qw(check_government_publication check_item_form
-	check_visual_material_technique check_target_audience);
+	check_visual_material_running_time check_visual_material_technique
+	check_target_audience);
 use Error::Pure qw(err);
 use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
@@ -55,7 +56,7 @@ sub BUILD {
 	eval { check_government_publication($self, 'government_publication'); };
 
 	# Check 'running_time_for_motion_pictures_and_videorecordings'.
-	# TODO
+	eval { check_visual_material_running_time($self, 'literary_text_for_sound_recordings'); };
 
 	# Check 'target_audience'.
 	eval { check_target_audience($self, 'target_audience'); };
