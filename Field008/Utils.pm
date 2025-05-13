@@ -21,7 +21,8 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_index check_item_form check_map_cartographic_material_type
 	check_map_projection check_map_relief check_map_special_format
 	check_music_accompanying_matter check_music_composition_form
-	check_music_format check_music_part check_music_transposition_and_arrangement
+	check_music_format check_music_literary_text check_music_part
+	check_music_transposition_and_arrangement
 	check_visual_material_running_time check_visual_material_technique
 	check_visual_material_type check_target_audience check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
@@ -402,6 +403,25 @@ sub check_music_format {
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
 	_check_bad_value($self, $key, \@MUSIC_FORMATS);
+
+	return;
+}
+
+sub check_music_literary_text {
+	my ($self, $key) = @_;
+
+	_check_base($self, $key);
+	_check_length($self, $key, 2);
+	if ($self->{$key} !~ m/^[\ abcdefghijklmnoprstz\|]{2}$/ms) {
+		err "Parameter '$key' contains bad music literary text character.",
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} ne '||' && $self->{$key} =~ m/\|/ms) {
+		err "Parameter '$key' has value with pipe character.",
+			'Value', $self->{$key},
+		;
+	}
 
 	return;
 }
