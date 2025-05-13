@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008::Utils qw(check_government_publication check_item_form
-	check_target_audience);
+	check_visual_material_technique check_target_audience);
 use Error::Pure qw(err);
 use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
@@ -61,7 +61,7 @@ sub BUILD {
 	eval { check_target_audience($self, 'target_audience'); };
 
 	# Check 'technique'.
-	# TODO
+	eval { check_visual_material_technique($self, 'technique'); };
 
 	# Check 'type_of_visual_material'.
 	# TODO
