@@ -77,7 +77,7 @@ $self = {
 eval {
 	check_map_relief($self, 'key');
 };
-is($EVAL_ERROR, "Parameter 'key' contain bad relief character.\n",
+is($EVAL_ERROR, "Parameter 'key' contains bad relief character.\n",
 	"Parameter 'key' contain bad relief character (foo1).");
 clean();
 

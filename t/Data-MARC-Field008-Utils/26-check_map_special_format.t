@@ -77,7 +77,7 @@ $self = {
 eval {
 	check_map_special_format($self, 'key');
 };
-is($EVAL_ERROR, "Parameter 'key' contain bad special format characteristics character.\n",
+is($EVAL_ERROR, "Parameter 'key' contains bad special format characteristics character.\n",
 	"Parameter 'key' contain bad special format characteristics character (ew).");
 clean();
 

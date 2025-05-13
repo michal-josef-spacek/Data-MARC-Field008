@@ -77,7 +77,7 @@ $self = {
 eval {
 	check_book_illustration($self, 'key');
 };
-is($EVAL_ERROR, "Parameter 'key' contain bad book illustration character.\n",
+is($EVAL_ERROR, "Parameter 'key' contains bad book illustration character.\n",
 	"Parameter 'key' contain bad book illustration character (foo1).");
 clean();
 

@@ -102,7 +102,7 @@ sub check_book_illustration {
 	_check_base($self, $key);
 	_check_length($self, $key, 4);
 	if ($self->{$key} !~ m/^[\ abcdefghijklmop\|]{4}$/ms) {
-		err "Parameter '$key' contain bad book illustration character.",
+		err "Parameter '$key' contains bad book illustration character.",
 			'Value', $self->{$key},
 		;
 	}
@@ -407,7 +407,7 @@ sub check_map_relief {
 	_check_base($self, $key);
 	_check_length($self, $key, 4);
 	if ($self->{$key} !~ m/^[\ abcdefgijkmz\|]{4}$/ms) {
-		err "Parameter '$key' contain bad relief character.",
+		err "Parameter '$key' contains bad relief character.",
 			'Value', $self->{$key},
 		;
 	}
@@ -426,7 +426,7 @@ sub check_map_special_format {
 	_check_base($self, $key);
 	_check_length($self, $key, 2);
 	if ($self->{$key} !~ m/^[\ ejklnoprz\|]{2}$/ms) {
-		err "Parameter '$key' contain bad special format characteristics character.",
+		err "Parameter '$key' contains bad special format characteristics character.",
 			'Value', $self->{$key},
 		;
 	}
