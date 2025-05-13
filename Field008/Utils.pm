@@ -73,11 +73,7 @@ sub check_book_biography {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @BOOK_BIOGRAPHIES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@BOOK_BIOGRAPHIES);
 
 	return;
 }
@@ -87,11 +83,7 @@ sub check_book_festschrift {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @BOOK_FESTSCHRIFTS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@BOOK_FESTSCHRIFTS);
 
 	return;
 }
@@ -120,11 +112,7 @@ sub check_book_literary_form {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @BOOK_LITERARY_FORMS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@BOOK_LITERARY_FORMS);
 
 	return;
 }
@@ -153,11 +141,7 @@ sub check_computer_file_item_form {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @COMPUTER_FILE_ITEM_FORMS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@COMPUTER_FILE_ITEM_FORMS);
 
 	return;
 }
@@ -167,11 +151,7 @@ sub check_computer_file_type {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @COMPUTER_FILE_TYPE) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@COMPUTER_FILE_TYPE);
 
 	return;
 }
@@ -181,11 +161,7 @@ sub check_conference_publication {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONFERENCE_PUBLICATIONS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONFERENCE_PUBLICATIONS);
 
 	return;
 }
@@ -195,11 +171,7 @@ sub check_continuing_resource_entry_convention {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_ENTRY_CONVENTIONS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_ENTRY_CONVENTIONS);
 
 	return;
 }
@@ -209,11 +181,7 @@ sub check_continuing_resource_form_of_original_item {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_FORMS_OF_ORIGINAL_ITEM) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_FORMS_OF_ORIGINAL_ITEM);
 
 	return;
 }
@@ -223,11 +191,7 @@ sub check_continuing_resource_frequency {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_FREQUENCIES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_FREQUENCIES);
 
 	return;
 }
@@ -256,11 +220,7 @@ sub check_continuing_resource_nature_of_entire_work {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_NATURE_OF_ENTIRE_WORKS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_NATURE_OF_ENTIRE_WORKS);
 
 	return;
 }
@@ -270,11 +230,7 @@ sub check_continuing_resource_original_alphabet_or_script {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_ORIGINAL_ALPHABETS_OR_SCRIPTS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_ORIGINAL_ALPHABETS_OR_SCRIPTS);
 
 	return;
 }
@@ -284,11 +240,7 @@ sub check_continuing_resource_regularity {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_REGULARITIES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_REGULARITIES);
 
 	return;
 }
@@ -298,11 +250,7 @@ sub check_continuing_resource_type {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @CONTINUING_RESOURCES_TYPES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@CONTINUING_RESOURCES_TYPES);
 
 	return;
 }
@@ -336,11 +284,7 @@ sub check_government_publication {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @GOVERNMENT_PUBLICATIONS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@GOVERNMENT_PUBLICATIONS);
 
 	return;
 }
@@ -350,11 +294,7 @@ sub check_index {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @INDEXES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@INDEXES);
 
 	return;
 }
@@ -364,11 +304,7 @@ sub check_item_form {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @ITEM_FORMS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@ITEM_FORMS);
 
 	return;
 }
@@ -378,11 +314,7 @@ sub check_map_cartographic_material_type {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @MAP_CARTOGRAPHIC_MATERIAL_TYPES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@MAP_CARTOGRAPHIC_MATERIAL_TYPES);
 
 	return;
 }
@@ -392,11 +324,7 @@ sub check_map_projection {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 2);
-	if (none { $self->{$key} eq $_ } @MAP_PROJECTIONS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@MAP_PROJECTIONS);
 
 	return;
 }
@@ -458,11 +386,7 @@ sub check_music_composition_form {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 2);
-	if (none { $self->{$key} eq $_ } @MUSIC_COMPOSITION_FORMS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@MUSIC_COMPOSITION_FORMS);
 
 	return;
 }
@@ -472,11 +396,7 @@ sub check_music_part {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @MUSIC_PARTS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@MUSIC_PARTS);
 
 	return;
 }
@@ -486,11 +406,7 @@ sub check_music_transposition_and_arrangement {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS);
 
 	return;
 }
@@ -500,11 +416,7 @@ sub check_target_audience {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @TARGET_AUDIENCES) {
-		err "Parameter '$key' has bad value.",
-			'Value', $self->{$key},
-		;
-	}
+	_check_bad_value($self, $key, \@TARGET_AUDIENCES);
 
 	return;
 }
@@ -514,7 +426,15 @@ sub check_type_of_date {
 
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
-	if (none { $self->{$key} eq $_ } @TYPE_OF_DATES) {
+	_check_bad_value($self, $key, \@TYPE_OF_DATES);
+
+	return;
+}
+
+sub _check_bad_value {
+	my ($self, $key, $keys_ar) = @_;
+
+	if (none { $self->{$key} eq $_ } @{$keys_ar}) {
 		err "Parameter '$key' has bad value.",
 			'Value', $self->{$key},
 		;
