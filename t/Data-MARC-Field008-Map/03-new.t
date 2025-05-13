@@ -24,7 +24,7 @@ $obj = Data::MARC::Field008::Map->new(
 	'index' => 1,
 	'projection' => '  ',
 	'relief' => 'z   ',
-	'raw' => 'z      e     1  ',
+	'raw' => 'z      e     1   ',
 	'special_format_characteristics' => '  ',
 	'type_of_cartographic_material' => 'e',
 );

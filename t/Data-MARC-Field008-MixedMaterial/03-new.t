@@ -16,14 +16,14 @@ isa_ok($obj, 'Data::MARC::Field008::MixedMaterial');
 # Test.
 $obj = Data::MARC::Field008::MixedMaterial->new(
 	'form_of_item' => 'r',
-	'raw' => '     r          ',
+	'raw' => '     r           ',
 );
 isa_ok($obj, 'Data::MARC::Field008::MixedMaterial');
 
 # Test.
 eval {
 	Data::MARC::Field008::MixedMaterial->new(
-		'raw' => '     r          ',
+		'raw' => '     r           ',
 	);
 };
 is($EVAL_ERROR, "Parameter 'form_of_item' is required.\n",

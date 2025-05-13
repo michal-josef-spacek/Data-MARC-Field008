@@ -14,6 +14,6 @@ is($obj->raw, undef, 'Get raw (undef - default).');
 # Test.
 $obj = Data::MARC::Field008::MixedMaterial->new(
 	'form_of_item' => 'r',
-	'raw' => '     r          ',
+	'raw' => '     r           ',
 );
-is($obj->raw, '     r          ', 'Get raw (     r          ).');
+is($obj->raw, '     r           ', 'Get raw (     r           ).');
