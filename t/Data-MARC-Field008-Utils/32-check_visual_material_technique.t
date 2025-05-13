@@ -12,14 +12,14 @@ my $self = {
 	'key' => 'a',
 };
 my $ret = check_visual_material_technique($self, 'key');
-is($ret, undef, 'Right target audience is present (a).');
+is($ret, undef, 'Right visual material technique is present (a).');
 
 # Test.
 $self = {
 	'key' => '|',
 };
 $ret = check_visual_material_technique($self, 'key');
-is($ret, undef, 'Right target audience is present (|).');
+is($ret, undef, 'Right visual material technique is present (|).');
 
 # Test.
 $self = {};
