@@ -3,7 +3,8 @@ package Data::MARC::Field008::Music;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_item_form check_music_composition_form
+use Data::MARC::Field008::Utils qw(check_item_form
+	check_music_accompanying_matter check_music_composition_form
 	check_music_part check_music_transposition_and_arrangement
 	check_target_audience);
 use Mo qw(build is);
@@ -51,7 +52,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check 'accompanying_matter'.
-	# TODO
+	check_music_accompanying_matter($self, 'accompanying_matter');
 
 	# Check 'form_of_composition'.
 	check_music_composition_form($self, 'form_of_composition');
