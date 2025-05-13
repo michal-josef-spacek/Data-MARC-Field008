@@ -5,7 +5,7 @@ use warnings;
 
 use Data::MARC::Field008::Utils qw(check_item_form
 	check_music_accompanying_matter check_music_composition_form
-	check_music_format check_music_part
+	check_music_format check_music_literary_text check_music_part
 	check_music_transposition_and_arrangement check_target_audience);
 use Error::Pure qw(err);
 use Error::Pure::Utils qw(err_get);
@@ -71,7 +71,7 @@ sub BUILD {
 	eval { check_music_format($self, 'format_of_music'); };
 
 	# Check 'literary_text_for_sound_recordings'.
-	# TODO
+	eval { check_music_literary_text($self, 'literary_text_for_sound_recordings'); };
 
 	# Check 'music_parts'.
 	eval { check_music_part($self, 'music_parts'); };
