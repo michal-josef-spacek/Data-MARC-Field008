@@ -22,8 +22,8 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_map_projection check_map_relief check_map_special_format
 	check_music_accompanying_matter check_music_composition_form
 	check_music_format check_music_part check_music_transposition_and_arrangement
-	check_visual_material_technique check_visual_material_type
-	check_target_audience check_type_of_date);
+	check_visual_material_running_time check_visual_material_technique
+	check_visual_material_type check_target_audience check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @BOOK_LITERARY_FORMS => qw(0 1 d e f h i j m p s u |);
@@ -422,6 +422,35 @@ sub check_music_transposition_and_arrangement {
 	_check_base($self, $key);
 	_check_length($self, $key, 1);
 	_check_bad_value($self, $key, \@MUSIC_TRANSPOSITIONS_AND_ARRANGEMENTS);
+
+	return;
+}
+
+sub check_visual_material_running_time {
+	my ($self, $key) = @_;
+
+	_check_base($self, $key);
+	_check_length($self, $key, 3);
+	if ($self->{$key} !~ m/^[\d\-n\|]{3}$/ms) {
+		err "Parameter '$key' contains bad visual material running time.",
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} ne '---' && $self->{$key} =~ m/\-/ms) {
+		err "Parameter '$key' has value with dash character.",
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} ne '|||' && $self->{$key} =~ m/\|/ms) {
+		err "Parameter '$key' has value with pipe character.",
+			'Value', $self->{$key},
+		;
+	}
+	if ($self->{$key} ne 'nnn' && $self->{$key} =~ m/n/ms) {
+		err "Parameter '$key' has value with 'n' character.",
+			'Value', $self->{$key},
+		;
+	}
 
 	return;
 }
