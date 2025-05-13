@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 use Data::MARC::Field008::Map;
-use Test::More 'tests' => 3;
+use English;
+use Error::Pure::Utils qw(clean);
+use Test::More 'tests' => 4;
 use Test::NoWarnings;
 
 # Test.
@@ -29,3 +31,13 @@ $obj = Data::MARC::Field008::Map->new(
 	'type_of_cartographic_material' => 'e',
 );
 isa_ok($obj, 'Data::MARC::Field008::Map');
+
+# Test.
+eval {
+	Data::MARC::Field008::Map->new(
+		'raw' => '  ',
+	);
+};
+is($EVAL_ERROR, "Parameter 'raw' has length different than '17'.\n",
+	"Parameter 'raw' has length different than '17'.");
+clean();
