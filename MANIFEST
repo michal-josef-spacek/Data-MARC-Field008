@@ -28,6 +28,8 @@ README
 t/Data-MARC-Field008-Book/01-use.t
 t/Data-MARC-Field008-Book/02-version.t
 t/Data-MARC-Field008-Book/03-new.t
+t/Data-MARC-Field008-Book/04-biography.t
+t/Data-MARC-Field008-Book/05-conference_publication.t
 t/Data-MARC-Field008-ComputerFile/01-use.t
 t/Data-MARC-Field008-ComputerFile/02-version.t
 t/Data-MARC-Field008-ComputerFile/03-new.t
@@ -43,6 +45,7 @@ t/Data-MARC-Field008-MixedMaterial/04-form_of_item.t
 t/Data-MARC-Field008-MixedMaterial/05-raw.t
 t/Data-MARC-Field008-Music/01-use.t
 t/Data-MARC-Field008-Music/02-version.t
+t/Data-MARC-Field008-Music/03-new.t
 t/Data-MARC-Field008-Utils/01-use.t
 t/Data-MARC-Field008-Utils/02-version.t
 t/Data-MARC-Field008-Utils/03-check_book_biography.t
