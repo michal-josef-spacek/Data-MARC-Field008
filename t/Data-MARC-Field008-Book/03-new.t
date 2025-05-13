@@ -4,7 +4,7 @@ use warnings;
 use Data::MARC::Field008::Book;
 use English;
 use Error::Pure::Utils qw(clean err_get);
-use Test::More 'tests' => 6;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 
 # Test.
@@ -40,8 +40,13 @@ eval {
 is($EVAL_ERROR, "Couldn't create data object of book.\n",
 	"Couldn't create data object of book.");
 my @errors = err_get;
+is(scalar @errors, 2, 'Number of errors (2).');
 is($errors[0]->{'msg'}->[0], "Parameter 'biography' has bad value.",
 	"Parameter 'biography' has bad value.");
 is($errors[0]->{'msg'}->[1], "Value", "Error key (Value).");
 is($errors[0]->{'msg'}->[2], "x", "Error key value (x).");
+is(scalar @{$errors[0]->{'msg'}}, 3, 'Number of error values (3).');
+is($errors[1]->{'msg'}->[0], "Couldn't create data object of book.",
+	"Couldn't create data object of book.");
+is(scalar @{$errors[1]->{'msg'}}, 1, 'Number of error values (1).');
 clean();
