@@ -4,7 +4,7 @@ use warnings;
 use Data::MARC::Field008::Book;
 use English;
 use Error::Pure::Utils qw(clean err_get);
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 12;
 use Test::NoWarnings;
 
 # Test.
@@ -24,6 +24,16 @@ isa_ok($obj, 'Data::MARC::Field008::Book');
 
 # Test.
 eval {
+	Data::MARC::Field008::Book->new;
+};
+is($EVAL_ERROR, "Couldn't create data object of book.\n",
+	"Couldn't create data object of book.");
+my @errors = err_get;
+is(scalar @errors, 11, 'Number of errors (11).');
+clean();
+
+# Test.
+eval {
 	Data::MARC::Field008::Book->new(
 		'biography' => 'x',
 		'conference_publication' => '0',
@@ -39,7 +49,7 @@ eval {
 };
 is($EVAL_ERROR, "Couldn't create data object of book.\n",
 	"Couldn't create data object of book.");
-my @errors = err_get;
+@errors = err_get;
 is(scalar @errors, 2, 'Number of errors (2).');
 is($errors[0]->{'msg'}->[0], "Parameter 'biography' has bad value.",
 	"Parameter 'biography' has bad value.");
