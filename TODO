@@ -1,10 +1,12 @@
 TODO
 ====
 1. Doc.
-2. Finish parameters for material objects
 4.
 
 Applied
 =======
 3. Merge form_of_item between mixed_materials and maps
 OK [20250509] skim
+
+2. Finish parameters for material objects
+OK [20250514] skim
