@@ -3,7 +3,7 @@ package Data::MARC::Field008;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_date check_type_of_date);
+use Data::MARC::Field008::Utils qw(check_date check_modified_record check_type_of_date);
 use Error::Pure qw(err);
 use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
@@ -100,6 +100,9 @@ sub BUILD {
 	} elsif ($self->material_type eq 'visual_material') {
 		check_isa($self, 'material', 'Data::MARC::Field008::VisualMaterial');
 	}
+
+	# Check 'modified_record'
+	check_modified_record($self, 'modified_record');
 
 	# Check place_of_publication.
 	check_required($self, 'place_of_publication');

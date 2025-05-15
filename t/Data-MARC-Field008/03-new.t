@@ -30,6 +30,7 @@ my $obj = Data::MARC::Field008->new(
 	'language' => 'cze',
 	'material' => $material,
 	'material_type' => 'book',
+	'modified_record' => ' ',
 	'place_of_publication' => '   ',
 	'type_of_date' => 's',
 );
@@ -43,6 +44,7 @@ $obj = Data::MARC::Field008->new(
 	'language' => 'cze',
 	'material' => $material,
 	'material_type' => 'book',
+	'modified_record' => ' ',
 	'place_of_publication' => '   ',
 	'type_of_date' => 'b',
 );
@@ -55,6 +57,7 @@ $obj = Data::MARC::Field008->new(
 	'date2' => '    ',
 	'language' => 'cze',
 	'material_type' => 'book',
+	'modified_record' => ' ',
 	'place_of_publication' => '   ',
 	'type_of_date' => 's',
 );
@@ -69,6 +72,7 @@ eval {
 		'language' => 'cze',
 		'material' => $material,
 		'material_type' => 'book',
+		'modified_record' => ' ',
 		'place_of_publication' => '   ',
 		'type_of_date' => 's',
 	);
@@ -85,6 +89,7 @@ eval {
 		'date2' => '    ',
 		'language' => 'cze',
 		'material' => $material,
+		'modified_record' => ' ',
 		'place_of_publication' => '   ',
 		'material_type' => 'book',
 	);
