@@ -4,11 +4,24 @@ use warnings;
 use Data::MARC::Field008::Music;
 use English;
 use Error::Pure::Utils qw(clean);
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 4;
 use Test::NoWarnings;
 
 # Test.
 my $obj = Data::MARC::Field008::Music->new(
+	'accompanying_matter' => '      ',
+	'form_of_composition' => 'sg',
+	'form_of_item' => ' ',
+	'format_of_music' => 'z',
+	'literary_text_for_sound_recordings' => 'nn',
+	'music_parts' => ' ',
+	'target_audience' => 'g',
+	'transposition_and_arrangement' => ' ',
+);
+isa_ok($obj, 'Data::MARC::Field008::Music');
+
+# Test.
+$obj = Data::MARC::Field008::Music->new(
 	'accompanying_matter' => '      ',
 	'form_of_composition' => 'sg',
 	'form_of_item' => ' ',
