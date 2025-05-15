@@ -78,7 +78,7 @@ sub BUILD {
 
 	# Check 'language'.
 	check_required($self, 'language');
-	check_length_fix($self, 'raw', 3);
+	check_length_fix($self, 'language', 3);
 
 	# Check 'material_type'.
 	check_required($self, 'material_type');
