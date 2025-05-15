@@ -64,6 +64,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check 'date_entered_on_file'.
+	check_required($self, 'date_entered_on_file');
 	check_length_fix($self, 'date_entered_on_file', 6);
 	if (defined $self->{'date_entered_on_file'} && $self->{'date_entered_on_file'} ne '      ') {
 		check_number($self, 'date_entered_on_file');
@@ -74,6 +75,10 @@ sub BUILD {
 
 	# Check 'date2'.
 	check_date($self, 'date2');
+
+	# Check 'language'.
+	check_required($self, 'language');
+	check_length_fix($self, 'raw', 3);
 
 	# Check 'material_type'.
 	check_required($self, 'material_type');
@@ -97,6 +102,7 @@ sub BUILD {
 	}
 
 	# Check place_of_publication.
+	check_required($self, 'place_of_publication');
 	check_length_fix($self, 'place_of_publication', 3);
 
 	# Check 'raw'

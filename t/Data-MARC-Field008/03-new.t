@@ -24,10 +24,13 @@ my $material = Data::MARC::Field008::Book->new(
 
 # Test.
 my $obj = Data::MARC::Field008->new(
+	'date_entered_on_file' => '      ',
 	'date1' => '    ',
 	'date2' => '    ',
+	'language' => 'cze',
 	'material' => $material,
 	'material_type' => 'book',
+	'place_of_publication' => '   ',
 	'type_of_date' => 's',
 );
 isa_ok($obj, 'Data::MARC::Field008');
@@ -37,8 +40,10 @@ $obj = Data::MARC::Field008->new(
 	'date_entered_on_file' => '      ',
 	'date1' => '    ',
 	'date2' => '    ',
+	'language' => 'cze',
 	'material' => $material,
 	'material_type' => 'book',
+	'place_of_publication' => '   ',
 	'type_of_date' => 'b',
 );
 isa_ok($obj, 'Data::MARC::Field008');
@@ -48,7 +53,9 @@ $obj = Data::MARC::Field008->new(
 	'date_entered_on_file' => '      ',
 	'date1' => '18uu',
 	'date2' => '    ',
+	'language' => 'cze',
 	'material_type' => 'book',
+	'place_of_publication' => '   ',
 	'type_of_date' => 's',
 );
 isa_ok($obj, 'Data::MARC::Field008');
@@ -59,8 +66,10 @@ eval {
 		'date_entered_on_file' => '      ',
 		'date1' => '18  ',
 		'date2' => '    ',
+		'language' => 'cze',
 		'material' => $material,
 		'material_type' => 'book',
+		'place_of_publication' => '   ',
 		'type_of_date' => 's',
 	);
 };
@@ -74,7 +83,9 @@ eval {
 		'date_entered_on_file' => '      ',
 		'date1' => '18||',
 		'date2' => '    ',
+		'language' => 'cze',
 		'material' => $material,
+		'place_of_publication' => '   ',
 		'material_type' => 'book',
 	);
 };
