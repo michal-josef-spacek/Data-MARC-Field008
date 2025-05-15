@@ -56,7 +56,7 @@ sub BUILD {
 	eval { check_government_publication($self, 'government_publication'); };
 
 	# Check 'running_time_for_motion_pictures_and_videorecordings'.
-	eval { check_visual_material_running_time($self, 'literary_text_for_sound_recordings'); };
+	eval { check_visual_material_running_time($self, 'running_time_for_motion_pictures_and_videorecordings'); };
 
 	# Check 'target_audience'.
 	eval { check_target_audience($self, 'target_audience'); };
