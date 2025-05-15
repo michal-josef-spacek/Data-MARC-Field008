@@ -20,9 +20,9 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_continuing_resource_type check_date check_government_publication
 	check_index check_item_form check_map_cartographic_material_type
 	check_map_projection check_map_relief check_map_special_format
-	check_music_accompanying_matter check_music_composition_form
-	check_music_format check_music_literary_text check_music_part
-	check_music_transposition_and_arrangement
+	check_modified_record check_music_accompanying_matter
+	check_music_composition_form check_music_format check_music_literary_text
+	check_music_part check_music_transposition_and_arrangement
 	check_visual_material_running_time check_visual_material_technique
 	check_visual_material_type check_target_audience check_type_of_date);
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
@@ -57,6 +57,7 @@ Readonly::Array our @MAP_PROJECTIONS => ('  ', 'aa', 'ab', 'ac', 'ad', 'ae',
 	'bf', 'bg', 'bh', 'bi', 'bj', 'bk', 'bl', 'bo', 'br', 'bs', 'bu', 'bz',
 	'ca', 'cb', 'cc', 'ce', 'cp', 'cu', 'cz', 'da', 'db', 'dc', 'dd', 'de',
 	'df', 'dg', 'dh', 'dl', 'zz', '||');
+Readonly::Array our @MODIFIED_RECORDS => (' ', 'd', 'o', 'r', 's', 'x', '|');
 Readonly::Array our @MUSIC_COMPOSITION_FORMS => qw(an bd bg bl bt ca cb cc cg ch
 	cl cn co cp cr cs ct cy cz df dv fg fl fm ft gm hy jz mc md mi mo mp mr
 	ms mu mz nc nn op or ov pg pm po pp pr ps pt pv rc rd rg ri rp rq sd sg
@@ -369,6 +370,16 @@ sub check_map_special_format {
 			'Value', $self->{$key},
 		;
 	}
+
+	return;
+}
+
+sub check_modified_record {
+	my ($self, $key) = @_;
+
+	_check_base($self, $key);
+	_check_length($self, $key, 1);
+	_check_bad_value($self, $key, \@MODIFIED_RECORDS);
 
 	return;
 }
