@@ -107,6 +107,12 @@ t/Data-MARC-Field008-Utils/38-check_type_of_date.t
 t/Data-MARC-Field008-VisualMaterial/01-use.t
 t/Data-MARC-Field008-VisualMaterial/02-version.t
 t/Data-MARC-Field008-VisualMaterial/03-new.t
+t/Data-MARC-Field008-VisualMaterial/04-form_of_item.t
+t/Data-MARC-Field008-VisualMaterial/05-government_publication.t
+t/Data-MARC-Field008-VisualMaterial/06-running_time_for_motion_pictures_and_videorecordings.t
+t/Data-MARC-Field008-VisualMaterial/07-target_audience.t
+t/Data-MARC-Field008-VisualMaterial/08-technique.t
+t/Data-MARC-Field008-VisualMaterial/09-type_of_visual_material.t
 t/Data-MARC-Field008/01-use.t
 t/Data-MARC-Field008/02-version.t
 t/Data-MARC-Field008/03-new.t
