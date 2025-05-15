@@ -41,6 +41,10 @@ t/Data-MARC-Field008-Book/13-target_audience.t
 t/Data-MARC-Field008-ComputerFile/01-use.t
 t/Data-MARC-Field008-ComputerFile/02-version.t
 t/Data-MARC-Field008-ComputerFile/03-new.t
+t/Data-MARC-Field008-ComputerFile/04-form_of_item.t
+t/Data-MARC-Field008-ComputerFile/05-government_publication.t
+t/Data-MARC-Field008-ComputerFile/06-target_audience.t
+t/Data-MARC-Field008-ComputerFile/07-type_of_computer_file.t
 t/Data-MARC-Field008-ContinuingResource/01-use.t
 t/Data-MARC-Field008-ContinuingResource/02-version.t
 t/Data-MARC-Field008-ContinuingResource/03-new.t
