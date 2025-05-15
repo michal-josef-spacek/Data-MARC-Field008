@@ -51,6 +51,13 @@ t/Data-MARC-Field008-ContinuingResource/03-new.t
 t/Data-MARC-Field008-Map/01-use.t
 t/Data-MARC-Field008-Map/02-version.t
 t/Data-MARC-Field008-Map/03-new.t
+t/Data-MARC-Field008-Map/04-form_of_item.t
+t/Data-MARC-Field008-Map/05-government_publication.t
+t/Data-MARC-Field008-Map/06-index.t
+t/Data-MARC-Field008-Map/07-projection.t
+t/Data-MARC-Field008-Map/08-relief.t
+t/Data-MARC-Field008-Map/09-special_format_characteristics.t
+t/Data-MARC-Field008-Map/10-type_of_cartographic_material.t
 t/Data-MARC-Field008-MixedMaterial/01-use.t
 t/Data-MARC-Field008-MixedMaterial/02-version.t
 t/Data-MARC-Field008-MixedMaterial/03-new.t
