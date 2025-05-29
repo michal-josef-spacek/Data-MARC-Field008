@@ -5,6 +5,7 @@ SYNOPSIS
      use Data::MARC::Field008;
 
      my $obj = Data::MARC::Field008->new(%params);
+     my $cataloging_source = $obj->cataloging_source;
      my $date_entered_on_file = $obj->date_entered_on_file;
      my $date1 = $obj->date1;
      my $date2 = $obj->date2;
@@ -18,6 +19,14 @@ METHODS
 
     Constructor.
 
+    *       "cataloging_source"
+
+            Cataloging source character.
+
+            It's required.
+
+            Default value is undef.
+
     *       "bibliographic_level"
 
             Bibliographic level flag.
@@ -27,6 +36,13 @@ METHODS
             TODO
 
     Returns instance of object.
+
+  "cataloging_source"
+     my $cataloging_source = $obj->cataloging_source;
+
+    Get cataloging source flag.
+
+    Returns character.
 
   "bibliographic_level"
      my $bibliographic_level = $obj->bibliographic_level;

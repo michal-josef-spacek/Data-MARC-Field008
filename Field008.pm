@@ -3,7 +3,8 @@ package Data::MARC::Field008;
 use strict;
 use warnings;
 
-use Data::MARC::Field008::Utils qw(check_date check_modified_record check_type_of_date);
+use Data::MARC::Field008::Utils qw(check_cataloging_source check_date
+	check_modified_record check_type_of_date);
 use Error::Pure qw(err);
 use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
@@ -62,6 +63,9 @@ has type_of_date => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check 'cataloging_source'.
+	check_cataloging_source($self, 'cataloging_source');
 
 	# Check 'date_entered_on_file'.
 	check_required($self, 'date_entered_on_file');
@@ -142,6 +146,7 @@ Data::MARC::Field008 - Data object for MARC leader.
  use Data::MARC::Field008;
 
  my $obj = Data::MARC::Field008->new(%params);
+ my $cataloging_source = $obj->cataloging_source;
  my $date_entered_on_file = $obj->date_entered_on_file;
  my $date1 = $obj->date1;
  my $date2 = $obj->date2;
@@ -159,6 +164,14 @@ Constructor.
 
 =over 8
 
+=item * C<cataloging_source>
+
+Cataloging source character.
+
+It's required.
+
+Default value is undef.
+
 =item * C<bibliographic_level>
 
 Bibliographic level flag.
@@ -170,6 +183,14 @@ TODO
 =back
 
 Returns instance of object.
+
+=head2 C<cataloging_source>
+
+ my $cataloging_source = $obj->cataloging_source;
+
+Get cataloging source flag.
+
+Returns character.
 
 =head2 C<bibliographic_level>
 

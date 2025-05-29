@@ -24,6 +24,7 @@ my $material = Data::MARC::Field008::Book->new(
 
 # Test.
 my $obj = Data::MARC::Field008->new(
+	'cataloging_source' => ' ',
 	'date_entered_on_file' => '      ',
 	'date1' => '    ',
 	'date2' => '    ',
@@ -38,6 +39,7 @@ isa_ok($obj, 'Data::MARC::Field008');
 
 # Test.
 $obj = Data::MARC::Field008->new(
+	'cataloging_source' => ' ',
 	'date_entered_on_file' => '      ',
 	'date1' => '    ',
 	'date2' => '    ',
@@ -52,6 +54,7 @@ isa_ok($obj, 'Data::MARC::Field008');
 
 # Test.
 $obj = Data::MARC::Field008->new(
+	'cataloging_source' => ' ',
 	'date_entered_on_file' => '      ',
 	'date1' => '18uu',
 	'date2' => '    ',
@@ -66,6 +69,7 @@ isa_ok($obj, 'Data::MARC::Field008');
 # Test.
 eval {
 	Data::MARC::Field008->new(
+		'cataloging_source' => ' ',
 		'date_entered_on_file' => '      ',
 		'date1' => '18  ',
 		'date2' => '    ',
@@ -84,6 +88,7 @@ clean();
 # Test.
 eval {
 	Data::MARC::Field008->new(
+		'cataloging_source' => ' ',
 		'date_entered_on_file' => '      ',
 		'date1' => '18||',
 		'date2' => '    ',
