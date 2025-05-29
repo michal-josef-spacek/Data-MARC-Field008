@@ -10,7 +10,7 @@ use Readonly;
 
 Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 	check_book_illustration check_book_literary_form check_book_nature_of_content
-	check_computer_file_item_form check_computer_file_type
+	check_cataloging_source check_computer_file_item_form check_computer_file_type
 	check_conference_publication check_continuing_resource_entry_convention
 	check_continuing_resource_form_of_original_item
 	check_continuing_resource_frequency check_continuing_resource_nature_of_content
@@ -28,6 +28,7 @@ Readonly::Array our @EXPORT_OK => qw(check_book_biography check_book_festschrift
 Readonly::Array our @BOOK_BIOGRAPHIES => (' ', 'a', 'b', 'c', 'd', '|');
 Readonly::Array our @BOOK_FESTSCHRIFTS => qw(0 1 |);
 Readonly::Array our @BOOK_LITERARY_FORMS => qw(0 1 d e f h i j m p s u |);
+Readonly::Array our @CATALOGING_SOURCES => (' ', 'c', 'd', 'u', '|');
 Readonly::Array our @COMPUTER_FILE_ITEM_FORMS => (' ', 'o', 'q', '|');
 Readonly::Array our @COMPUTER_FILE_TYPE => qw(a b c d e f g h i j m u z |);
 Readonly::Array our @CONFERENCE_PUBLICATIONS => qw(0 1 |);
@@ -139,6 +140,16 @@ sub check_book_nature_of_content {
 			'Value', $self->{$key},
 		;
 	}
+
+	return;
+}
+
+sub check_cataloging_source {
+	my ($self, $key) = @_;
+
+	_check_base($self, $key);
+	_check_length($self, $key, 1);
+	_check_bad_value($self, $key, \@CATALOGING_SOURCES);
 
 	return;
 }
