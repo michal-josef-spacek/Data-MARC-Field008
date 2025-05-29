@@ -5,7 +5,8 @@ TODO
 5. Add check for language.
 6. Add check for cataloging source
 7. Add tests.
-8.
+8. Add tests for raw().
+9.
 
 Applied
 =======
