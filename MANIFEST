@@ -48,6 +48,17 @@ t/Data-MARC-Field008-ComputerFile/07-type_of_computer_file.t
 t/Data-MARC-Field008-ContinuingResource/01-use.t
 t/Data-MARC-Field008-ContinuingResource/02-version.t
 t/Data-MARC-Field008-ContinuingResource/03-new.t
+t/Data-MARC-Field008-ContinuingResource/04-conference_publication.t
+t/Data-MARC-Field008-ContinuingResource/05-entry_convention.t
+t/Data-MARC-Field008-ContinuingResource/06-form_of_item.t
+t/Data-MARC-Field008-ContinuingResource/07-form_of_original_item.t
+t/Data-MARC-Field008-ContinuingResource/08-frequency.t
+t/Data-MARC-Field008-ContinuingResource/09-government_publication.t
+t/Data-MARC-Field008-ContinuingResource/10-nature_of_content.t
+t/Data-MARC-Field008-ContinuingResource/11-nature_of_entire_work.t
+t/Data-MARC-Field008-ContinuingResource/12-original_alphabet_or_script_of_title.t
+t/Data-MARC-Field008-ContinuingResource/13-regularity.t
+t/Data-MARC-Field008-ContinuingResource/14-type_of_continuing_resource.t
 t/Data-MARC-Field008-Map/01-use.t
 t/Data-MARC-Field008-Map/02-version.t
 t/Data-MARC-Field008-Map/03-new.t
