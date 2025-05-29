@@ -16,7 +16,7 @@ Readonly::Array our @MATERIAL_TYPES => qw(book computer_file continuing_resource
 
 our $VERSION = 0.01;
 
-has cataloging_resource => (
+has cataloging_source => (
 	is => 'ro',
 );
 
