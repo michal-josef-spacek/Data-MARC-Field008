@@ -77,6 +77,14 @@ t/Data-MARC-Field008-MixedMaterial/05-raw.t
 t/Data-MARC-Field008-Music/01-use.t
 t/Data-MARC-Field008-Music/02-version.t
 t/Data-MARC-Field008-Music/03-new.t
+t/Data-MARC-Field008-Music/04-accompanying_matter.t
+t/Data-MARC-Field008-Music/05-form_of_composition.t
+t/Data-MARC-Field008-Music/06-form_of_item.t
+t/Data-MARC-Field008-Music/07-format_of_music.t
+t/Data-MARC-Field008-Music/08-literary_text_for_sound_recordings.t
+t/Data-MARC-Field008-Music/09-music_parts.t
+t/Data-MARC-Field008-Music/10-target_audience.t
+t/Data-MARC-Field008-Music/11-transposition_and_arrangement.t
 t/Data-MARC-Field008-Utils/01-use.t
 t/Data-MARC-Field008-Utils/02-version.t
 t/Data-MARC-Field008-Utils/03-check_book_biography.t
