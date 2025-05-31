@@ -150,9 +150,13 @@ Data::MARC::Field008 - Data object for MARC leader.
  my $date_entered_on_file = $obj->date_entered_on_file;
  my $date1 = $obj->date1;
  my $date2 = $obj->date2;
+ my $language = $obj->language;
+ my $material = $obj->material;
+ my $material_type = $obj->material_type;
+ my $modified_record = $obj->modified_record;
  my $place_of_publication = $obj->place_of_publication;
+ my $raw = $obj->raw;
  my $type_of_date = $obj->type_of_date;
- # TODO
 
 =head1 METHODS
 
@@ -172,11 +176,49 @@ It's required.
 
 Default value is undef.
 
-=item * C<bibliographic_level>
+=item * C<date_entered_on_file>
 
-Bibliographic level flag.
+Date entered on file.
 
 Default values is undef.
+
+=item * C<date1>
+
+Date 1.
+
+Default value is undef.
+
+=item * C<date2>
+
+Date 2.
+
+Default value is undef.
+
+=item * C<language>
+
+TODO
+
+=item * C<material>
+
+TODO
+
+=item * C<material_type>
+
+TODO
+
+=item * C<modified_record>
+
+TODO
+
+=item * C<place_of_publication>
+
+TODO
+
+=item * C<raw>
+
+TODO
+
+=item * C<type_of_date>
 
 TODO
 
@@ -192,63 +234,13 @@ Get cataloging source flag.
 
 Returns character.
 
-=head2 C<bibliographic_level>
-
- my $bibliographic_level = $obj->bibliographic_level;
-
-Get bibliographic level flag.
-
-Returns character.
-
 TODO
 
 =head1 ERRORS
 
  new():
-         Parameter 'bibliographic_level' must be one of defined strings.
-                 String: %s
-                 Possible strings: a b c d i m s
-         Parameter 'char_coding_scheme' must be one of defined strings.
-                 String: %s
-                 Possible strings: ' ' a
-         Parameter 'descriptive_cataloging_form' must be one of defined strings.
-                 String: %s
-                 Possible strings: ' ' a c i n u
-         Parameter 'encoding_level' must be one of defined strings.
-                 String: %s
-                 Possible strings: ' ' 1 2 3 4 5 7 8 u z
-         Parameter 'impl_def_portion_len' must be one of defined strings.
-                 String: %s
-                 Possible strings: 0
-         Parameter 'indicator_count' must be one of defined strings.
-                 String: %s
-                 Possible strings: 2
-         Parameter 'length_of_field_portion_len' must be one of defined strings.
-                 String: %s
-                 Possible strings: 4
-         Parameter 'multipart_resource_record_level' must be one of defined strings.
-                 String: %s
-                 Possible strings: ' ' a b c
-         Parameter 'raw' has length different than '24'.
+         Parameter 'raw' has length different than '40'.
                  Value: %s
-         Parameter 'starting_char_pos_portion_len' must be one of defined strings.
-                 String: %s
-                 Possible strings: 5
-         Parameter 'status' must be one of defined strings.
-                 String: %s
-                 Possible strings: a c d n p
-         Parameter 'subfield_code_count' must be one of defined strings.
-                 String: %s
-                 Possible strings: 2
-         Parameter 'type' must be one of defined strings.
-                 String: %s
-                 Possible strings: a c d e f g i j k m o p r t
-         Parameter 'type_of_control' must be one of defined strings.
-                 String: %s
-                 Possible strings: ' ' a
-         Parameter 'undefined' must be one of defined strings.
-                 String: %s
-                 Possible strings: 0
 
 =head1 EXAMPLE
 
@@ -272,6 +264,9 @@ TODO
 
 =head1 DEPENDENCIES
 
+L<Data::MARC::Field008::Utils>,
+L<Error::Pure>
+L<Error::Pure::Utils>
 L<Mo>,
 L<Mo::utils>,
 L<Readonly>.

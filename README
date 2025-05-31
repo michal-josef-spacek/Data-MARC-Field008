@@ -9,9 +9,13 @@ SYNOPSIS
      my $date_entered_on_file = $obj->date_entered_on_file;
      my $date1 = $obj->date1;
      my $date2 = $obj->date2;
+     my $language = $obj->language;
+     my $material = $obj->material;
+     my $material_type = $obj->material_type;
+     my $modified_record = $obj->modified_record;
      my $place_of_publication = $obj->place_of_publication;
+     my $raw = $obj->raw;
      my $type_of_date = $obj->type_of_date;
-     # TODO
 
 METHODS
   "new"
@@ -27,11 +31,49 @@ METHODS
 
             Default value is undef.
 
-    *       "bibliographic_level"
+    *       "date_entered_on_file"
 
-            Bibliographic level flag.
+            Date entered on file.
 
             Default values is undef.
+
+    *       "date1"
+
+            Date 1.
+
+            Default value is undef.
+
+    *       "date2"
+
+            Date 2.
+
+            Default value is undef.
+
+    *       "language"
+
+            TODO
+
+    *       "material"
+
+            TODO
+
+    *       "material_type"
+
+            TODO
+
+    *       "modified_record"
+
+            TODO
+
+    *       "place_of_publication"
+
+            TODO
+
+    *       "raw"
+
+            TODO
+
+    *       "type_of_date"
 
             TODO
 
@@ -44,61 +86,12 @@ METHODS
 
     Returns character.
 
-  "bibliographic_level"
-     my $bibliographic_level = $obj->bibliographic_level;
-
-    Get bibliographic level flag.
-
-    Returns character.
-
     TODO
 
 ERRORS
      new():
-             Parameter 'bibliographic_level' must be one of defined strings.
-                     String: %s
-                     Possible strings: a b c d i m s
-             Parameter 'char_coding_scheme' must be one of defined strings.
-                     String: %s
-                     Possible strings: ' ' a
-             Parameter 'descriptive_cataloging_form' must be one of defined strings.
-                     String: %s
-                     Possible strings: ' ' a c i n u
-             Parameter 'encoding_level' must be one of defined strings.
-                     String: %s
-                     Possible strings: ' ' 1 2 3 4 5 7 8 u z
-             Parameter 'impl_def_portion_len' must be one of defined strings.
-                     String: %s
-                     Possible strings: 0
-             Parameter 'indicator_count' must be one of defined strings.
-                     String: %s
-                     Possible strings: 2
-             Parameter 'length_of_field_portion_len' must be one of defined strings.
-                     String: %s
-                     Possible strings: 4
-             Parameter 'multipart_resource_record_level' must be one of defined strings.
-                     String: %s
-                     Possible strings: ' ' a b c
-             Parameter 'raw' has length different than '24'.
+             Parameter 'raw' has length different than '40'.
                      Value: %s
-             Parameter 'starting_char_pos_portion_len' must be one of defined strings.
-                     String: %s
-                     Possible strings: 5
-             Parameter 'status' must be one of defined strings.
-                     String: %s
-                     Possible strings: a c d n p
-             Parameter 'subfield_code_count' must be one of defined strings.
-                     String: %s
-                     Possible strings: 2
-             Parameter 'type' must be one of defined strings.
-                     String: %s
-                     Possible strings: a c d e f g i j k m o p r t
-             Parameter 'type_of_control' must be one of defined strings.
-                     String: %s
-                     Possible strings: ' ' a
-             Parameter 'undefined' must be one of defined strings.
-                     String: %s
-                     Possible strings: 0
 
 EXAMPLE
      use strict;
@@ -118,7 +111,8 @@ EXAMPLE
      # TODO
 
 DEPENDENCIES
-    Mo, Mo::utils, Readonly.
+    Data::MARC::Field008::Utils, Error::Pure Error::Pure::Utils Mo,
+    Mo::utils, Readonly.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Data-MARC-Field008>
