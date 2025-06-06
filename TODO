@@ -7,7 +7,8 @@ TODO
 7. Add tests.
 8. Add tests for raw().
 9. Rename check_music_part() to check_music_parts()
-10.
+10. Rename nature_of_content() to nature_of_contents().
+11.
 
 Applied
 =======
