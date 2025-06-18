@@ -8,8 +8,7 @@ use Data::MARC::Field008::Utils qw(check_cataloging_source check_date
 use Error::Pure qw(err);
 use Error::Pure::Utils qw(err_get);
 use Mo qw(build is);
-use Mo::utils 0.22 qw(check_isa check_length_fix check_number check_regexp
-	check_required check_strings);
+use Mo::utils 0.22 qw(check_isa check_length_fix check_number check_required check_strings);
 use Readonly;
 
 Readonly::Array our @MATERIAL_TYPES => qw(book computer_file continuing_resource
@@ -139,7 +138,7 @@ __END__
 
 =head1 NAME
 
-Data::MARC::Field008 - Data object for MARC leader.
+Data::MARC::Field008 - Data object for MARC field 008.
 
 =head1 SYNOPSIS
 
@@ -170,7 +169,8 @@ Constructor.
 
 =item * C<cataloging_source>
 
-Cataloging source character.
+Cataloging source character. The length of the string is 1 character.
+Possible characters are ' ', 'c', 'd', 'u' or '|'.
 
 It's required.
 
@@ -180,11 +180,15 @@ Default value is undef.
 
 Date entered on file.
 
+It's required.
+
 Default values is undef.
 
 =item * C<date1>
 
 Date 1.
+
+It's required.
 
 Default value is undef.
 
@@ -192,35 +196,113 @@ Default value is undef.
 
 Date 2.
 
+It's required.
+
 Default value is undef.
 
 =item * C<language>
 
-TODO
+Language. The length of the string is 3 characters.
+Possible values are '   ', 'zxx', 'mul', 'sgn', 'und', '|||' or three character
+language code.
+
+It's required.
+
+Default value is undef.
 
 =item * C<material>
 
-TODO
+Material data object.
+
+Possible objects are:
+
+=over
+
+=item * L<Data::MARC::Field008::Book>
+
+=item * L<Data::MARC::Field008::ComputerFile>
+
+=item * L<Data::MARC::Field008::ContinuingResource>
+
+=item * L<Data::MARC::Field008::Map>
+
+=item * L<Data::MARC::Field008::MixedMaterial>
+
+=item * L<Data::MARC::Field008::Music>
+
+=item * L<Data::MARC::Field008::VisualMaterial>
+
+=back
+
+It's required.
+
+Default value is undef.
 
 =item * C<material_type>
 
-TODO
+Material type.
+
+Possible values are:
+
+=over
+
+=item * book
+
+=item * computer_file
+
+=item * continuing_resource
+
+=item * map
+
+=item * mixed_material
+
+=item * music
+
+=item * visual_material
+
+=back
+
+It's required.
+
+Default value is undef.
 
 =item * C<modified_record>
 
-TODO
+Modified record. The length of the string is 1 character.
+Possible characters are ' ', 'd', 'o', 'r', 's', 'x' or '|'.
+
+It's required.
+
+Default value is undef.
 
 =item * C<place_of_publication>
 
-TODO
+Place of publication, production, or execution. The length of the string are 3
+characters.
+Possible values are 'xx ', 'vp ', or two/three alphabetic codes.
+
+It's required.
+
+Default value is undef.
 
 =item * C<raw>
 
-TODO
+Raw string of field 008. The length of the string is 40 characters.
+
+It's optional.
+
+Default value is undef.
 
 =item * C<type_of_date>
 
-TODO
+The type of date or the publication status. The length of the string is 1
+character.
+Possible characters are 'b', 'c', 'd', 'e', 'i', 'k', 'm', 'n', 'p', 'q', 'r',
+'s', 't', 'u' or '|'.
+
+It's required.
+
+Default value is undef.
 
 =back
 
@@ -234,13 +316,193 @@ Get cataloging source flag.
 
 Returns character.
 
-TODO
+=head2 C<date_entered_on_file>
+
+ my $date_entered_on_file = $obj->date_entered_on_file;
+
+Get date entered on file.
+
+Returns string.
+
+=head2 C<date1>
+
+ my $date1 = $obj->date1;
+
+Get date #1 string.
+
+Returns string.
+
+=head2 C<date2>
+
+ my $date2 = $obj->date2;
+
+Get date #2 string.
+
+Returns string.
+
+=head2 C<language>
+
+ my $language = $obj->language;
+
+Get language.
+
+Returns string.
+
+=head2 C<material>
+
+ my $material = $obj->material;
+
+Get material object.
+
+Returns Material object.
+
+=head2 C<material_type>
+
+ my $material_type = $obj->material_type;
+
+Get material type.
+
+Returns string.
+
+=head2 C<modified_record>
+
+ my $modified_record = $obj->modified_record;
+
+Get modified record.
+
+Returns string.
+
+=head2 C<place_of_publication>
+
+ my $place_of_publication = $obj->place_of_publication;
+
+Get place of publication.
+
+Returns string.
+
+=head2 C<raw>
+
+ my $raw = $obj->raw;
+
+Get raw string of field 008.
+
+Returns string.
+
+=head2 C<type_of_date>
+
+ my $type_of_date = $obj->type_of_date;
+
+Get type of date.
+
+Returns string.
 
 =head1 ERRORS
 
  new():
-         Parameter 'raw' has length different than '40'.
-                 Value: %s
+         Field 008 isn't valid.
+                 Raw string: %s
+         From Mo::utils::check_isa():
+                 Parameter 'material' must be a 'Data::MARC::Field008::Book' object.
+                         Value: %s
+                         Reference: %s
+                 Parameter 'material' must be a 'Data::MARC::Field008::ComputerFile' object.
+                         Value: %s
+                         Reference: %s
+                 Parameter 'material' must be a 'Data::MARC::Field008::ContinuingResource' object.
+                         Value: %s
+                         Reference: %s
+                 Parameter 'material' must be a 'Data::MARC::Field008::Map' object.
+                         Value: %s
+                         Reference: %s
+                 Parameter 'material' must be a 'Data::MARC::Field008::MixedMaterial' object.
+                         Value: %s
+                         Reference: %s
+                 Parameter 'material' must be a 'Data::MARC::Field008::Music' object.
+                         Value: %s
+                         Reference: %s
+                 Parameter 'material' must be a 'Data::MARC::Field008::VisualMaterial' object.
+                         Value: %s
+                         Reference: %s
+         From Mo::utils::check_length_fix():
+                 Parameter 'date_entered_on_file' has length different than '6'.
+                         Value: %s
+                 Parameter 'language' has length different than '3'.
+                         Value: %s
+                 Parameter 'place_of_publication' has length different than '3'.
+                         Value: %s
+                 Parameter 'raw' has length different than '40'.
+                         Value: %s
+         From Mo::utils::check_number():
+                 Parameter 'date_entered_on_file' must be a number.
+                         Value: %s
+         From Mo::utils::check_required():
+                 Parameter 'date_entered_on_file' is required.
+                 Parameter 'language' is required.
+                 Parameter 'material_type' is required.
+                 Parameter 'place_of_publication' is required.
+         From Mo::utils::check_strings():
+                 Parameter 'material_type' must be one of defined strings.
+                         String: %s
+                         Possible strings: %s
+                 Parameter 'material_type' must have right string definition.
+                 Parameter 'material_type' must have strings definition.
+         From Data::MARC::Field008::Utils::check_cataloging_source():
+                 Parameter 'cataloging_source' has bad value.
+                         Value: %s
+                 Parameter 'cataloging_source' is required.
+                 Parameter 'cataloging_source' length is bad.
+                         Length: %s
+                         Value: %s
+                         Expected length: 1
+                 Parameter 'cataloging_source' must be a scalar value.
+                         Reference: %s
+         From Data::MARC::Field008::Utils::check_date():
+                 Parameter 'date1' has bad value.
+                         Value: %s
+                 Parameter 'date2' has bad value.
+                         Value: %s
+                 Parameter 'date1' has value with pipe character.
+                         Value: %s
+                 Parameter 'date2' has value with pipe character.
+                         Value: %s
+                 Parameter 'date1' has value with space character.
+                         Value: %s
+                 Parameter 'date2' has value with space character.
+                         Value: %s
+                 Parameter 'date1' is required.
+                 Parameter 'date2' is required.
+                 Parameter 'date1' length is bad.
+                         Length: %s
+                         Value: %s
+                         Expected length: 1
+                 Parameter 'date2' length is bad.
+                         Length: %s
+                         Value: %s
+                         Expected length: 1
+                 Parameter 'date1' must be a scalar value.
+                         Reference: %s
+                 Parameter 'date2' must be a scalar value.
+                         Reference: %s
+         From Data::MARC::Field008::Utils::check_modified_record():
+                 Parameter 'modified_record' has bad value.
+                         Value: %s
+                 Parameter 'modified_record' is required.
+                 Parameter 'modified_record' length is bad.
+                         Length: %s
+                         Value: %s
+                         Expected length: 1
+                 Parameter 'modified_record' must be a scalar value.
+                         Reference: %s
+         From Data::MARC::Field008::Utils::check_type_of_date():
+                 Parameter 'type_of_date' has bad value.
+                         Value: %s
+                 Parameter 'type_of_date' is required.
+                 Parameter 'type_of_date' length is bad.
+                         Length: %s
+                         Value: %s
+                         Expected length: 1
+                 Parameter 'type_of_date' must be a scalar value.
+                         Reference: %s
 
 =head1 EXAMPLE
 
@@ -251,16 +513,70 @@ TODO
 
  use Data::Printer;
  use Data::MARC::Field008;
+ use Data::MARC::Field008::Book;
 
+ # cnb000000096
  my $obj = Data::MARC::Field008->new(
-         'bibliographic_level' => 'm',
+         'cataloging_source' => ' ',
+         'date_entered_on_file' => '830304',
+         'date1' => '1982',
+         'date2' => '    ',
+         'language' => 'cze',
+         'material' => Data::MARC::Field008::Book->new(
+                 'biography' => ' ',
+                 'conference_publication' => '0',
+                 'festschrift' => '|',
+                 'form_of_item' => ' ',
+                 'government_publication' => 'u',
+                 'illustrations' => 'a   ',
+                 'index' => '0',
+                 'literary_form' => '|',
+                 'nature_of_content' => '    ',
+                 #         89012345678901234
+                 'raw' => 'a         u0|0 | ',
+                 'target_audience' => ' ',
+         ),
+         'material_type' => 'book',
+         'modified_record' => ' ',
+         'place_of_publication' => 'xr ',
+         #         0123456789012345678901234567890123456789
+         'raw' => '830304s1982    xr a         u0|0 | cze  ',
+         'type_of_date' => 's',
  );
 
  # Print out.
  p $obj;
 
  # Output:
- # TODO
+ # Data::MARC::Field008  {
+ #     parents: Mo::Object
+ #     public methods (14):
+ #         BUILD
+ #         Data::MARC::Field008::Utils:
+ #             check_cataloging_source, check_date, check_modified_record, check_type_of_date
+ #         Error::Pure:
+ #             err
+ #         Error::Pure::Utils:
+ #             err_get
+ #         Mo::utils:
+ #             check_isa, check_length_fix, check_number, check_regexp, check_required, check_strings
+ #         Readonly:
+ #             Readonly
+ #     private methods (0)
+ #     internals: {
+ #         cataloging_source      " ",
+ #         date_entered_on_file   830304,
+ #         date1                  1982,
+ #         date2                  "    ",
+ #         language               "cze",
+ #         material               Data::MARC::Field008::Book,
+ #         material_type          "book",
+ #         modified_record        " ",
+ #         place_of_publication   "xr ",
+ #         raw                    "830304s1982    xr a         u0|0 | cze  " (dualvar: 830304),
+ #         type_of_date           "s"
+ #     }
+ # }
 
 =head1 DEPENDENCIES
 

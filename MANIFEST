@@ -1,5 +1,13 @@
 Changes
 CONCEPT
+examples/create_and_dump_marc_field_008.pl
+examples/create_and_dump_marc_field_008_book.pl
+examples/create_and_dump_marc_field_008_computer_file_material.pl
+examples/create_and_dump_marc_field_008_continuing_resource_material.pl
+examples/create_and_dump_marc_field_008_map_material.pl
+examples/create_and_dump_marc_field_008_mixed_material.pl
+examples/create_and_dump_marc_field_008_music_material.pl
+examples/create_and_dump_marc_field_008_visual_material.pl
 Field008.pm
 Field008/Book.pm
 Field008/ComputerFile.pm

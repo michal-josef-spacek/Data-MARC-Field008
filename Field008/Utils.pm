@@ -557,7 +557,7 @@ sub _check_base {
 	}
 	if (ref $self->{$key} ne '') {
 		err "Parameter '$key' must be a scalar value.",
-			'Reference', (ref, $self->{$key}),
+			'Reference', (ref $self->{$key}),
 		;
 	}
 
@@ -579,3 +579,922 @@ sub _check_length {
 }
 
 1;
+
+__END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+Data::MARC::Field008::Utils - Utilities to check MARC field008 values.
+
+=head1 SYNOPSIS
+
+ use Data::MARC::Field008::Utils qw(check_book_biography check_book_festschrift
+         check_book_illustration check_book_literary_form check_book_nature_of_content
+         check_cataloging_source check_computer_file_item_form check_computer_file_type
+         check_conference_publication check_continuing_resource_entry_convention
+         check_continuing_resource_form_of_original_item
+         check_continuing_resource_frequency check_continuing_resource_nature_of_content
+         check_continuing_resource_nature_of_entire_work
+         check_continuing_resource_original_alphabet_or_script
+         check_continuing_resource_regularity
+         check_continuing_resource_type check_date check_government_publication
+         check_index check_item_form check_map_cartographic_material_type
+         check_map_projection check_map_relief check_map_special_format
+         check_modified_record check_music_accompanying_matter
+         check_music_composition_form check_music_format check_music_literary_text
+         check_music_part check_music_transposition_and_arrangement
+         check_visual_material_running_time check_visual_material_technique
+         check_visual_material_type check_target_audience check_type_of_date);
+
+ check_book_biography($self, $key);
+ check_book_festschrift($self, $key);
+ check_book_illustration($self, $key);
+ check_book_literary_form($self, $key);
+ check_book_nature_of_content($self, $key);
+ check_cataloging_source($self, $key);
+ check_computer_file_item_form($self, $key);
+ check_computer_file_type($self, $key);
+ check_conference_publication($self, $key);
+ check_continuing_resource_entry_convention($self, $key);
+ check_continuing_resource_form_of_original_item($self, $key);
+ check_continuing_resource_frequency($self, $key);
+ check_continuing_resource_nature_of_content($self, $key);
+ check_continuing_resource_nature_of_entire_work($self, $key);
+ check_continuing_resource_original_alphabet_or_script($self, $key);
+ check_continuing_resource_regularity($self, $key);
+ check_continuing_resource_type($self, $key);
+ check_date($self, $key);
+ check_government_publication($self, $key);
+ check_index($self, $key);
+ check_item_form($self, $key);
+ check_map_cartographic_material_type($self, $key);
+ check_map_projection($self, $key);
+ check_map_relief($self, $key);
+ check_map_special_format($self, $key);
+ check_modified_record($self, $key);
+ check_music_accompanying_matter($self, $key);
+ check_music_composition_form($self, $key);
+ check_music_format($self, $key);
+ check_music_literary_text($self, $key);
+ check_music_part($self, $key);
+ check_music_transposition_and_arrangement($self, $key);
+ check_visual_material_running_time($self, $key);
+ check_visual_material_technique($self, $key);
+ check_visual_material_type($self, $key);
+ check_target_audience($self, $key);
+ check_type_of_date($self, $key);
+
+=head1 DESCRIPTION
+
+The Perl module with common utilities for check with L<Data::MARC::Field008> values.
+
+=head1 SUBROUTINES
+
+=head2 C<check_book_biography>
+
+ check_book_biography($self, $key);
+
+Check parameter defined by C<$key> which is book biography.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_book_festschrift>
+
+ check_book_festschrift($self, $key);
+
+Check parameter defined by C<$key> which is book festschrift.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_book_illustration>
+
+ check_book_illustration($self, $key);
+
+Check parameter defined by C<$key> which is book illustration.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_book_literary_form>
+
+ check_book_literary_form($self, $key);
+
+Check parameter defined by C<$key> which is book literary form.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_book_nature_of_content>
+
+ check_book_nature_of_content($self, $key);
+
+Check parameter defined by C<$key> which is book nature of content.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_cataloging_source>
+
+ check_cataloging_source($self, $key);
+
+Check parameter defined by C<$key> which is cataloging source.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_computer_file_item_form>
+
+ check_computer_file_item_form($self, $key);
+
+Check parameter defined by C<$key> which is computer file form of item.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_computer_file_type>
+
+ check_computer_file_type($self, $key);
+
+Check parameter defined by C<$key> which is computer file file type.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_conference_publication>
+
+ check_conference_publication($self, $key);
+
+Check parameter defined by C<$key> which is conference publication.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_entry_convention>
+
+ check_continuing_resource_entry_convention($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource entry
+convention.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_form_of_original_item>
+
+ check_continuing_resource_form_of_original_item($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource form of original
+item.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_frequency>
+
+ check_continuing_resource_frequency($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource frequency.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_nature_of_content>
+
+ check_continuing_resource_nature_of_content($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource nature of
+content.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_nature_of_entire_work>
+
+ check_continuing_resource_nature_of_entire_work($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource nature of
+entire work.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_original_alphabet_or_script>
+
+ check_continuing_resource_original_alphabet_or_script($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource original
+alphabet or script of title.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_regularity>
+
+ check_continuing_resource_regularity($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource regularity.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_continuing_resource_type>
+
+ check_continuing_resource_type($self, $key);
+
+Check parameter defined by C<$key> which is continuing resource type.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_date>
+
+ check_date($self, $key);
+
+Check parameter defined by C<$key> which is field 008 date.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_government_publication>
+
+ check_government_publication($self, $key);
+
+Check parameter defined by C<$key> which is government publication.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_index>
+
+ check_index($self, $key);
+
+Check parameter defined by C<$key> which is index.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_item_form>
+
+ check_item_form($self, $key);
+
+Check parameter defined by C<$key> which is form of item.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_map_cartographic_material_type>
+
+ check_map_cartographic_material_type($self, $key);
+
+Check parameter defined by C<$key> which is map type of cartographic material.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_map_projection>
+
+ check_map_projection($self, $key);
+
+Check parameter defined by C<$key> which is map projection.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_map_relief>
+
+ check_map_relief($self, $key);
+
+Check parameter defined by C<$key> which is map relief.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_map_special_format>
+
+ check_map_special_format($self, $key);
+
+Check parameter defined by C<$key> which is map special format characteristics.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_modified_record>
+
+ check_modified_record($self, $key);
+
+Check parameter defined by C<$key> which is modified record.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_music_accompanying_matter>
+
+ check_music_accompanying_matter($self, $key);
+
+Check parameter defined by C<$key> which is music accompanying matter.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_music_composition_form>
+
+ check_music_composition_form($self, $key);
+
+Check parameter defined by C<$key> which is music form of composition.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_music_format>
+
+ check_music_format($self, $key);
+
+Check parameter defined by C<$key> which is music format.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_music_literary_text>
+
+ check_music_literary_text($self, $key);
+
+Check parameter defined by C<$key> which is music literary text for sound recordings.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_music_part>
+
+ check_music_part($self, $key);
+
+Check parameter defined by C<$key> which is music parts.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_music_transposition_and_arrangement>
+
+ check_music_transposition_and_arrangement($self, $key);
+
+Check parameter defined by C<$key> which is music transposition and arrangement.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_visual_material_running_time>
+
+ check_visual_material_running_time($self, $key);
+
+Check parameter defined by C<$key> which is visual material running time for motion pictures and videorecordings.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_visual_material_technique>
+
+ check_visual_material_technique($self, $key);
+
+Check parameter defined by C<$key> which is visual material technique.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_visual_material_type>
+
+ check_visual_material_type($self, $key);
+
+Check parameter defined by C<$key> which is visual material type.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_target_audience>
+
+ check_target_audience($self, $key);
+
+Check parameter defined by C<$key> which is target audience.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head2 C<check_type_of_date>
+
+ check_type_of_date($self, $key);
+
+Check parameter defined by C<$key> which is type of date.
+
+Put error if check isn't ok.
+
+Returns undef.
+
+=head1 ERRORS
+
+ check_book_biography():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_book_festschrift()
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_book_illustration():
+         Parameter '%s' contains bad book illustration character.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 4
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_book_literary_form()
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_book_nature_of_content():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 4
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_cataloging_source():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_computer_file_item_form():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_computer_file_type():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_conference_publication():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_entry_convention():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_form_of_original_item():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_frequency():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_nature_of_content():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_nature_of_entire_work():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_original_alphabet_or_script():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_regularity():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_continuing_resource_type():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_date():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' has value with space character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_government_publication():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_index():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_item_form():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_map_cartographic_material_type():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_map_projection():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 2
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_map_relief():
+         Parameter '%s' contains bad relief character.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 4
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_map_special_format():
+         Parameter '%s' contains bad special format characteristics character.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 2
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_modified_record():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_music_accompanying_matter():
+         Parameter '%s' contains bad music accompanying matter character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 6
+
+ check_music_composition_form():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 2
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_music_format():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_music_literary_text():
+         Parameter '%s' contains bad music literary text character.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 2
+
+ check_music_part():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_music_transposition_and_arrangement():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_visual_material_running_time():
+         Parameter '%s' contains bad visual material running time.
+                 Value: %s
+         Parameter '%s' has value with 'n' character.
+                 Value: %s
+         Parameter '%s' has value with dash character.
+                 Value: %s
+         Parameter '%s' has value with pipe character.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: %s
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_visual_material_technique():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_visual_material_type():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_target_audience():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+ check_type_of_date():
+         Parameter '%s' has bad value.
+                 Value: %s
+         Parameter '%s' is required.
+         Parameter '%s' length is bad.
+                 Length: %s
+                 Value: %s
+                 Expected length: 1
+         Parameter '%s' must be a scalar value.
+                 Reference: %s
+
+=head1 DEPENDENCIES
+
+L<Error::Pure>,
+L<Exporter>,
+L<List::Util>,
+L<Readonly>.
+
+=head1 SEE ALSO
+
+=over
+
+=item L<Data::MARC::Field008>
+
+Data object for MARC field 008.
+
+=back
+
+=head1 REPOSITORY
+
+L<https://github.com/michal-josef-spacek/Data-MARC-Field008>
+
+=head1 AUTHOR
+
+Michal Josef Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+© 2025 Michal Josef Špaček
+
+BSD 2-Clause License
+
+=head1 VERSION
+
+0.01
+
+=cut
