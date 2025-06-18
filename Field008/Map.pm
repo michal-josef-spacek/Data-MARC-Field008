@@ -13,7 +13,7 @@ use Mo::utils 0.22 qw(check_length_fix);
 
 our $STRICT = 1;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 has form_of_item => (
 	is => 'ro',
@@ -425,6 +425,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
