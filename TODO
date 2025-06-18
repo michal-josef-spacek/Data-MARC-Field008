@@ -9,7 +9,8 @@ TODO
 10. Rename nature_of_content() to nature_of_contents().
 11. Improve Field008 language parameter doc.
 12. Improve Field008 place_of_publication parameter doc.
-13.
+13. Rewrite Field008::check_number to something better.
+14.
 
 Applied
 =======
