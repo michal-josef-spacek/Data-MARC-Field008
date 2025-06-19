@@ -358,6 +358,7 @@ Returns string.
  use Data::Printer;
  use Data::MARC::Field008::Map;
 
+ # cnb000001006
  my $obj = Data::MARC::Field008::Map->new(
          'form_of_item' => ' ',
          'government_publication' => ' ',

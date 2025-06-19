@@ -395,6 +395,7 @@ Returns string.
  use Data::Printer;
  use Data::MARC::Field008::Music;
 
+ # cnb000012142
  my $obj = Data::MARC::Field008::Music->new(
          'accompanying_matter' => '      ',
          'form_of_composition' => 'sg',

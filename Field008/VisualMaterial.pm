@@ -311,6 +311,7 @@ Returns string.
  use Data::Printer;
  use Data::MARC::Field008::VisualMaterial;
 
+ # cnb000027064
  my $obj = Data::MARC::Field008::VisualMaterial->new(
          'form_of_item' => ' ',
          'government_publication' => ' ',
