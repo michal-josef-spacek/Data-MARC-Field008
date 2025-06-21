@@ -5,7 +5,6 @@ TODO
 6. Add check for cataloging source
 7. Add tests.
 8. Add tests for raw().
-9. Rename check_music_part() to check_music_parts()
 10. Rename nature_of_content() to nature_of_contents().
 11. Improve Field008 language parameter doc.
 12. Improve Field008 place_of_publication parameter doc.
@@ -23,3 +22,6 @@ OK [20250514] skim
 
 1. Doc.
 OK [20250618] skim
+
+9. Rename check_music_part() to check_music_parts()
+OK [20250621] skim
