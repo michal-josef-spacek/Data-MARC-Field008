@@ -7,7 +7,7 @@ use Data::MARC::Field008::Utils qw(check_government_publication check_item_form
 	check_visual_material_running_time check_visual_material_technique
 	check_target_audience);
 use Error::Pure qw(err);
-use Error::Pure::Utils qw(err_get);
+use Error::Pure::Utils qw(clean err_get);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix check_required);
 
@@ -74,6 +74,8 @@ sub BUILD {
 				defined $self->raw ? ('Raw string', $self->raw) : (),
 			;
 		}
+	} else {
+		clean();
 	}
 
 	return;

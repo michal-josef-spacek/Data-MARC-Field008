@@ -7,7 +7,7 @@ use Data::MARC::Field008::Utils qw(check_government_publication check_index
 	check_item_form check_map_cartographic_material_type check_map_projection
 	check_map_relief check_map_special_format);
 use Error::Pure qw(err);
-use Error::Pure::Utils qw(err_get);
+use Error::Pure::Utils qw(clean err_get);
 use Mo qw(build is);
 use Mo::utils 0.22 qw(check_length_fix);
 
@@ -81,6 +81,8 @@ sub BUILD {
 				defined $self->raw ? ('Raw string', $self->raw) : (),
 			;
 		}
+	} else {
+		clean();
 	}
 
 	return;
