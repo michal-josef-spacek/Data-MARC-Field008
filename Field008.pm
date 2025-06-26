@@ -14,7 +14,7 @@ use Readonly;
 Readonly::Array our @MATERIAL_TYPES => qw(book computer_file continuing_resource
 	map mixed_material music visual_material);
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 has cataloging_source => (
 	is => 'ro',
@@ -605,6 +605,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut
