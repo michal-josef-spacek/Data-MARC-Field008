@@ -1,5 +1,6 @@
 0.04
  - Add ACKNOWLEDGEMENTS section to doc.
+ - Finish tests for computer file.
  - Remove obsolete clean() call in tests.
 
 0.03 2025-06-26T12:55:30+02:00
