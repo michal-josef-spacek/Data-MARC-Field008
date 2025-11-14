@@ -74,7 +74,7 @@ Readonly::Array our @TARGET_AUDIENCES => (' ', 'a', 'b', 'c', 'd', 'e', 'f',
 	'g', 'j', '|');
 Readonly::Array our @TYPE_OF_DATES => qw(b c d e i k m n p q r s t u |);
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 sub check_book_biography {
 	my ($self, $key) = @_;
@@ -1502,6 +1502,6 @@ the Czech Republic (DKRVO 2024–2028), Area 11: Linked Open Data.
 
 =head1 VERSION
 
-0.04
+0.05
 
 =cut

@@ -14,7 +14,7 @@ use Readonly;
 Readonly::Array our @MATERIAL_TYPES => qw(book computer_file continuing_resource
 	map mixed_material music visual_material);
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 has cataloging_source => (
 	is => 'ro',
@@ -612,6 +612,6 @@ the Czech Republic (DKRVO 2024–2028), Area 11: Linked Open Data.
 
 =head1 VERSION
 
-0.04
+0.05
 
 =cut

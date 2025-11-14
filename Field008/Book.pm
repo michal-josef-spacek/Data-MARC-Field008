@@ -14,7 +14,7 @@ use Mo::utils 0.22 qw(check_length_fix check_required);
 
 our $STRICT = 1;
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 has biography => (
 	is => 'ro',
@@ -546,6 +546,6 @@ the Czech Republic (DKRVO 2024–2028), Area 11: Linked Open Data.
 
 =head1 VERSION
 
-0.04
+0.05
 
 =cut
